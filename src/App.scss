@@ -1,7 +1,6 @@
 @import "./variables.scss";
 
 .app {
-
     display: flex;
     flex-direction: column;
 
@@ -10,9 +9,27 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
-        padding: 1rem 2rem;
+        padding: 0.5rem 2rem;
         
+        .menu-button {
+            display: flex;
+            align-items: center;
+            @include respond-to(large){
+                display: none;
+            }
+            i {
+                font-size: 2rem;
+            }
+        }
+        img {
+            transform: scale(0.7)
+        }
+
         .app-navigation {
+            display: none;
+            @include respond-to(large){
+                display: block;
+            }
             ul {
                 margin-top: 1.5rem;
                 display: flex;
@@ -26,10 +43,18 @@
                 }
             }
         }
+
+        .user-section {
+            width: 40px;
+            height: 40px;
+            background: red;
+        }
 	}
 
     .background-image {
         position: fixed;
-        width: 100%;
+        bottom: 0;
+        max-width: 100%;
+        z-index: -1;
     }
 }

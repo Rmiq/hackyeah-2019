@@ -12,6 +12,9 @@ const App = () => {
 		<div className="app">
 			<Router>
 				<header className="app-header">
+                    <a className="menu-button">
+                        <i class="fa fa-bars"></i>
+                    </a>
 					<img src="./logo_lot_en.svg" />
 					<div className="app-navigation">
 						<ul>

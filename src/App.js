@@ -1,10 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import "./App.scss";
+import './pages/placeAndLuggageBooker/bookPlaceAndLuggage.scss'
 
 import Home from "./pages/Home";
 import { FormCreator } from "./pages/FormCreator";
 import DataTransfer from "./pages/DataTransfer";
+import bookPlaceAndLuggage from "./pages/placeAndLuggageBooker/bookPlaceAndLuggage";
 import History from "./pages/History";
 
 const App = () => {
@@ -44,8 +46,10 @@ const App = () => {
 						</ul>
 					</div>
 					<div className="user-section">
-						<i class="fa fa-user"></i>
-						<span>Login</span>
+						<i className="fa fa-user"></i>
+						<span>
+							Login
+                        </span>
 					</div>
 				</header>
 
@@ -53,7 +57,7 @@ const App = () => {
 				<section className="app-content">
 					<Route path="/" exact component={Home} />
 					<Route path="/forms" exact component={FormCreator} />
-					<Route path="/transfer" exact component={DataTransfer} />
+                    <Route path="/transfer" exact component={bookPlaceAndLuggage} />
 					<Route path="/history" exact component={History} />
 				</section>
 			</Router>

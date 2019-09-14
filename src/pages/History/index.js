@@ -1,20 +1,20 @@
-import React, {useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./index.scss";
 
 const History = () => {
 	const [data, setData] = useState();
 
 	useEffect(() => {
-	    // const response = await fetch('https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda');
+		// const response = await fetch('https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda');
 		// const data = await response.json();
 		// console.log(data);
-	   const url = "https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda";
-       fetch(url)
-           .then(response => response.json())
-		   .then(res => setData(res));
-		  
+		const url = "https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda";
+		fetch(url)
+			.then(response => response.json())
+			.then(res => setData(res));
+
 	}, []);
-	
+
 	console.log(data);
 
 	return (
@@ -29,7 +29,7 @@ const History = () => {
 							<span>Distance</span>
 							<span>Price</span>
 					</li>
-					{data && data.Items.map(items=> (
+					{data && data.Items.map(items => (
 						<li key={items.date}>
 							<span>{items.answers[0]}</span>
 							<span>{items.answers[1]}</span>

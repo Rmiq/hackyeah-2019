@@ -8,4 +8,5 @@ const dataTransfer = () => {
         </div>
 	);
 };
+
 export default dataTransfer;

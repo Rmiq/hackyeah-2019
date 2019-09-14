@@ -6,7 +6,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import './material.scss';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import { Checkbox } from "../../components/Checkbox";
-
+let screenWidth
 function getParameterByName(name, url) {
 	if (!url) url = window.location.href;
 	name = name.replace(/[\[\]]/g, '\\$&');
@@ -21,7 +21,7 @@ export function FormCreator() {
 	const [endDatePick, setEndDate] = React.useState(null);
 	const [focusedInput, setFocusedInput] = React.useState(null);
 	const [singleDate, setSingleDate] = React.useState(null);
-	const [focusedSingleInput, setFocusedSingleInput] = React.useState(null);
+	const [focusedSingleInput, setFocusedSingleInput] = React.useState(true);
 	const [isChecked, setCheck] = React.useState(false);
 	const [prevClicked, setPrev] = React.useState(false);
 	const [nextClicked, setNext] = React.useState(false);
@@ -29,16 +29,21 @@ export function FormCreator() {
 	const [endPrice, setEndPrice] = React.useState(null);
 	const [totalPrice, setTotalPrice] = React.useState(0);
 	const [param, setParam] = React.useState('Berlin');
+	const [screenWidth, setScreenWidth] = React.useState(window.screen.width);
 	React.useEffect(() => {
 		setFocusedInput('startDate');
 
 		getParameterByName('city') && setParam(getParameterByName('city'))
 
+		window.addEventListener("resize", () => {
+			setScreenWidth(window.screen.width)
+
+
+		});
 	}, []);
 	React.useEffect(() => {
 		let dayClick = document.querySelectorAll('.CalendarDay');
-		let startPrice = 0;
-		let endPrice = 0;
+
 
 		dayClick && dayClick.forEach(e => {
 
@@ -114,7 +119,7 @@ export function FormCreator() {
 
 
 
-	}, [focusedInput, focusedSingleInput, prevClicked, nextClicked])
+	}, [focusedInput, isChecked, prevClicked, nextClicked])
 	const handleDateChange = (e) => {
 
 		if (e.startDate) {
@@ -155,7 +160,10 @@ export function FormCreator() {
 							date={singleDate}
 							focused={focusedSingleInput}
 							onDateChange={handleSingleDateChange}
-							onFocusChange={focused => { setFocusedSingleInput(focused) }}
+							onFocusChange={() => { setFocusedSingleInput(true) }}
+							hideKeyboardShortcutsPanel={true}
+							orientation={screenWidth > 1024 ? 'horizontal' : 'vertical'}
+
 
 						/>
 						:
@@ -171,7 +179,7 @@ export function FormCreator() {
 								setFocusedInput(focused);
 							}} // PropTypes.func.isRequired,
 							hideKeyboardShortcutsPanel={true}
-							orientation={'vertical'}
+							orientation={screenWidth > 1024 ? 'horizontal' : 'vertical'}
 						/>}
 				</div>
 

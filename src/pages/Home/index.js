@@ -32,13 +32,13 @@ const Home = () => {
 	const [quizShow, setQuizShow] = useState(true);
 
 	const quizAnswer = e => {
-		console.log(quizCounter, quizQuestions.length - 1);
-		if (e.target.classList.contains("ans") && quizShow - 1) {
+		if (e.target.classList.contains("ans") && quizCounter < quizQuestions.length - 1) {
 			profile.push(e.target.text);
 		} else if (
 			e.target.classList.contains("ans") &&
 			quizCounter == quizQuestions.length - 1
 		) {
+            profile.push(e.target.text);
 			setQuizShow(false);
 
 			// Make post here

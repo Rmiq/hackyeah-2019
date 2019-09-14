@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import "./index.scss";
 
-const history = () => {
+const History = () => {
 
 	useEffect(() => {
 	    // const response = await fetch('https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda');
@@ -10,7 +10,7 @@ const history = () => {
 	   const url = "https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda";
        fetch(url)
            .then(response => response.json())
-           .then(data => this.setState({ dataPlaces: data.body }));
+           .then(data => console.log(data));
 	}, []);
 	
 
@@ -33,4 +33,4 @@ const history = () => {
 		</div>
 	);
 };
-export default history;
+export default History;

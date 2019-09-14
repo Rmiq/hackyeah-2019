@@ -34,7 +34,7 @@ export function FormCreator() {
 
 	return (
 		<div className="view view-pickerWrapper">
-			<h2>Form Creator</h2>
+			<h2>Flight Scheduler</h2>
 			<div className="form-wrapper">
 
 

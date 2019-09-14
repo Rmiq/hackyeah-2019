@@ -15,29 +15,32 @@ const App = () => {
                     <a className="menu-button">
                         <i class="fa fa-bars"></i>
                     </a>
+                    <NavLink exact to="/">
 					<img src="./logo_lot_en.svg" />
+                    </NavLink>
 					<div className="app-navigation">
 						<ul>
 							<li>
-								<NavLink exact to="/">
-									Query Builder
-								</NavLink>
-							</li>
-							<li>
 								<NavLink exact to="/forms">
-									Form Creator
+									Book a flight
 								</NavLink>
 							</li>
 							<li>
 								<NavLink exact to="/transfer">
-									Data Transfer
+									Deals & offers
 								</NavLink>
 							</li>
 							<li>
 								<NavLink exact to="/history">
-									History
+									Prepare for travel
 								</NavLink>
 							</li>
+                            <li>
+                                Customer service
+                            </li>
+                            <li>
+                                Miles & More
+                            </li>
 						</ul>
 					</div>
                     <div className="user-section">

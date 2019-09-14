@@ -6,7 +6,8 @@ const Home = () => {
 	return (
 		<div className="view view-home">
             <div className="user-quiz">
-                <h2>1. What is your destination?</h2>
+                <span>Let us help you find a flight</span>
+                <h2>What is your purpose of the flight?</h2>
                 <div className="answers">
                     <ul>
                         <li><a>Business Trip</a></li>
@@ -16,7 +17,8 @@ const Home = () => {
                 </div>
             </div>
             <div className="standard-search">
-                <a>Use standard search</a>
+                <span>or use a </span>
+                <a>standard search</a>
             </div>
 		</div>
 	);

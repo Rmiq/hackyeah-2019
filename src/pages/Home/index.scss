@@ -1,0 +1,46 @@
+.view-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .user-quiz {
+        margin-top: 5rem;
+        width: 60vw;
+        background: white;
+        border-radius: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 4rem;
+
+        h2 {
+            font-size: 3rem;
+        }
+
+        ul {
+            display: flex;
+            margin-top: 3rem;
+            li {
+                a {
+                    padding: 1rem 2rem;
+                    margin: 0 1rem;
+                    background: #1244DD;
+                    color: white;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    .standard-search {
+        margin-top: 2rem;
+        a {
+            text-decoration: underline;
+            color: #1244DD;
+        }
+    }
+	
+}

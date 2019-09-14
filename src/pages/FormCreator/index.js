@@ -7,7 +7,15 @@ import './material.scss';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import { Checkbox } from "../../components/Checkbox";
 
-
+function getParameterByName(name, url) {
+	if (!url) url = window.location.href;
+	name = name.replace(/[\[\]]/g, '\\$&');
+	var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+		results = regex.exec(url);
+	if (!results) return null;
+	if (!results[2]) return '';
+	return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
 export function FormCreator() {
 	const [startDatePick, setStartDate] = React.useState(null);
 	const [endDatePick, setEndDate] = React.useState(null);
@@ -17,31 +25,50 @@ export function FormCreator() {
 	const [isChecked, setCheck] = React.useState(false);
 	const [prevClicked, setPrev] = React.useState(false);
 	const [nextClicked, setNext] = React.useState(false);
+	const [startPrice, setStartPrice] = React.useState(null);
+	const [endPrice, setEndPrice] = React.useState(null);
+	const [totalPrice, setTotalPrice] = React.useState(0);
+	const [param, setParam] = React.useState('Berlin');
 	React.useEffect(() => {
 		setFocusedInput('startDate');
 
+		getParameterByName('city') && setParam(getParameterByName('city'))
 
 	}, []);
 	React.useEffect(() => {
 		let dayClick = document.querySelectorAll('.CalendarDay');
 		let startPrice = 0;
 		let endPrice = 0;
-		dayClick && dayClick.forEach(e => {
-			e.addEventListener('click', (z) => {
-				console.log(e.classList.contains('CalendarDay__selected_start'));
-				if (e.classList.contains('CalendarDay__selected_start')) {
 
-					startPrice = e.querySelector('.price').innerText.slice(0, -2);
-					console.log(startPrice)
-				}
-				if (e.classList.contains('CalendarDay__selected_end')) {
-					endPrice = e.querySelector('.price').innerText.slice(0, -2);
-					console.log(endPrice)
-				}
+		dayClick && dayClick.forEach(e => {
+
+			e.addEventListener('click', (z) => {
+				setTimeout(() => {
+					if (e.classList.contains('CalendarDay__selected_start')) {
+
+						setStartPrice(e.querySelector('.price').innerText.slice(0, -2));
+
+					}
+					if (e.classList.contains('CalendarDay__selected_end')) {
+						setEndPrice(e.querySelector('.price').innerText.slice(0, -2));
+
+					}
+				}, 10)
+
+
 
 			})
+
 		})
 	}, [focusedInput])
+	React.useEffect(() => {
+
+		if (endPrice && startPrice) {
+			/* totalPrice = endPrice.parseInt() + startPrice.parseInt(); */
+			setTotalPrice(Number(endPrice) + Number(startPrice));
+
+		}
+	}, [startPrice, endPrice])
 	React.useEffect(() => {
 		let test = document.querySelectorAll('.CalendarDay:not(.CalendarDay__blocked_out_of_range) ');
 
@@ -110,13 +137,13 @@ export function FormCreator() {
 
 	return (
 		<div className="view view-pickerWrapper">
-			<h2>Flight Scheduler</h2>
+			<h2>Flight scheduler for <span className="city">{param}</span></h2>
 			<div className="form-wrapper">
 
 
 				<div className="checkbox" >
 					<label className="label-wrapper">
-						<input type="checkbox" onChange={() => { setCheck(!isChecked) }} /><span className="checkbox-material" ><span className="check"></span></span> One-way
+						<input type="checkbox" checked={isChecked} onClick={() => { setCheck(!isChecked) }} /><span className="checkbox-material" ><span className="check"></span></span> One-way
 </label>
 				</div>
 
@@ -144,10 +171,19 @@ export function FormCreator() {
 								setFocusedInput(focused);
 							}} // PropTypes.func.isRequired,
 							hideKeyboardShortcutsPanel={true}
+							orientation={'vertical'}
 						/>}
 				</div>
+
 			</div>
-			<button className="rkmd-btn btn-lg btn-lightBlue ripple-effect book-button">Book flight</button>
+			<div className="bottom-wrapper">
+				<div className="total-wrapper">
+					<p>Total price: <span>{totalPrice} zł</span></p>
+
+				</div>
+				<button disabled={totalPrice ? false : true} className="rkmd-btn btn-lg btn-lightBlue ripple-effect book-button">Book flight</button>
+			</div>
+
 
 
 		</div >

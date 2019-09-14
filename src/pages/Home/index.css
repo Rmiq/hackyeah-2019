@@ -1,0 +1,181 @@
+.view-home {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.view-home .user-quiz {
+  margin: 0 auto;
+  margin-top: 1rem;
+  background: white;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 0.5rem;
+  width: 90%;
+  text-align: center;
+}
+@media only screen and (min-width: 1024px) {
+  .view-home .user-quiz {
+    width: 70%;
+    padding: 4rem;
+    margin-top: 5rem;
+  }
+}
+.view-home .user-quiz.done {
+  padding: 0.5rem;
+}
+@media only screen and (min-width: 1024px) {
+  .view-home .user-quiz.done {
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+}
+.view-home .user-quiz span {
+  font-size: 1.1rem;
+  color: #999;
+}
+@media only screen and (min-width: 1024px) {
+  .view-home .user-quiz span {
+    font-size: 1.3rem;
+  }
+}
+.view-home .user-quiz h2 {
+  font-size: 2rem;
+}
+@media only screen and (min-width: 1024px) {
+  .view-home .user-quiz h2 {
+    font-size: 3rem;
+  }
+}
+.view-home .user-quiz ul {
+  margin-top: 1rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+@media only screen and (min-width: 1024px) {
+  .view-home .user-quiz ul {
+    flex-direction: row;
+  }
+}
+.view-home .user-quiz ul a {
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 1024px) {
+  .view-home .user-quiz ul a {
+    flex-direction: row;
+  }
+}
+.view-home .user-quiz ul li {
+  padding: 0 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.view-home .user-quiz ul li a {
+  display: block;
+  padding: 0.5rem 0.7rem;
+  background: #083377;
+  color: white;
+  margin-top: 1rem;
+  text-align: center;
+  height: 100%;
+}
+@media only screen and (min-width: 1024px) {
+  .view-home .user-quiz ul li a {
+    padding: 1rem 2rem;
+    margin: 0 1rem;
+  }
+}
+.view-home .results {
+  margin: 0 auto;
+  margin-top: 1rem;
+  background: white;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  width: 90%;
+  text-align: center;
+}
+@media only screen and (min-width: 1024px) {
+  .view-home .results {
+    width: 70%;
+    padding: 2rem;
+    margin-top: 2;
+  }
+}
+.view-home .results .results-list {
+  width: 100%;
+}
+.view-home .results .results-list ul {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.view-home .results .results-list ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+  height: 120px;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+@media only screen and (min-width: 1024px) {
+  .view-home .results .results-list ul li {
+    flex-direction: column;
+    height: 80px;
+  }
+}
+.view-home .results .results-list ul li div {
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.view-home .results .results-list ul li img {
+  height: 100%;
+  width: 100%;
+  padding-bottom: 0.5rem;
+}
+.view-home .results .results-list ul li a {
+  -webkit-appearance: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  background: #083377;
+  border-radius: 1rem;
+  font-weight: bold;
+  font-size: 14px;
+  margin-right: 1rem;
+}
+.view-home .results .results-list ul li a:hover {
+  cursor: pointer;
+}
+.view-home .results .results-list ul li span {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 0.5rem 1rem;
+}
+.view-home .results.even ul {
+  flex-direction: column-reverse;
+}
+.view-home .standard-search {
+  margin-top: 2rem;
+  text-align: center;
+}
+.view-home .standard-search a {
+  text-decoration: underline;
+  color: #083377;
+}
+
+/*# sourceMappingURL=index.css.map */

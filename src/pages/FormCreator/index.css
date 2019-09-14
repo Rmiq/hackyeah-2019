@@ -1,0 +1,65 @@
+.view-pickerWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.view .form-wrapper {
+  display: flex;
+  align-items: center;
+}
+.view .CalendarDay {
+  border: none;
+}
+.view .CalendarDay__selected, .view .CalendarDay__selected:active, .view .CalendarDay__selected:hover {
+  background: #094185;
+  border: none;
+  color: #fff;
+}
+.view .CalendarDay__selected_span {
+  background: #1976D2;
+  border: none;
+  color: #fff;
+}
+.view .CalendarDay__selected_span:active, .view .CalendarDay__selected_span:hover {
+  background: #2196F3;
+  border: none;
+  color: #fff;
+}
+.view .CalendarDay__selected_start {
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+.view .CalendarDay__selected_end {
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.view .DateInput_input__focused {
+  outline: 0;
+  background: #fff;
+  border: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 2px solid #094185;
+  border-left: 0;
+}
+.view .DayPicker_transitionContainer {
+  width: 618px;
+  height: 319px !important;
+}
+.view .DateInput_fang.DateInput_fang_1 {
+  display: none;
+}
+.view .DateRangePicker_picker {
+  left: -50% !important;
+}
+.view .price {
+  font-size: 10px;
+}
+.view .book-button {
+  margin-left: 1rem;
+  background: #094185 !important;
+  position: absolute;
+  top: 70%;
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -25,29 +25,76 @@ const quizQuestions = [
 	}
 ];
 
-const profile = [];
+const answers = [];
+let city = '';
 
 const Home = () => {
 	const [quizCounter, setQuizCounter] = useState(0);
 	const [quizShow, setQuizShow] = useState(true);
+	//const [isFinished, setIsFinished] =useState(false);
+
+	// useEffect(() => {
+	// 	if (isFinished) {
+	// 		(async () => {
+	// 			await fetch(
+	// 				`https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mypostlambda`,
+	// 				{
+	// 					method: 'POST',
+	// 					headers: {
+	// 						Accept: 'application/json',
+	// 						'Content-Type': 'application/json',
+	// 					},
+	// 					body: JSON.stringify({
+	// 						answers,
+	// 						city
+	// 					}),
+	// 				}
+	// 			)
+	// 				.then(res => res.json())
+	// 				.then(data => {console.log(data)})
+	// 				.catch(function (error) { });
+	// 		})();
+	// 	}
+	// }, [isFinished]);
 
 	const quizAnswer = e => {
 		if (e.target.classList.contains("ans") && quizCounter < quizQuestions.length - 1) {
-			profile.push(e.target.text);
+			answers.push(e.target.text);
 		} else if (
 			e.target.classList.contains("ans") &&
 			quizCounter == quizQuestions.length - 1
 		) {
-            profile.push(e.target.text);
+            answers.push(e.target.text);
 			setQuizShow(false);
 
 			// Make post here
-			console.log(profile);
+			if(answers.length){
+				
+			}
+			console.log(answers);
 		}
 		if (quizShow) {
 			setQuizCounter(quizCounter + 1);
 		}
 	};
+	const selectCity = e =>{
+		e.preventDefault();
+		city = e.target.getAttribute('data');
+		if(city != '' && e.target.tagName == 'A'){	
+			var url = 'https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mypostlambda';
+			var data = {answers,city};
+
+			fetch(url, {
+			method: 'POST',
+			body: JSON.stringify(data), 
+			headers:{
+				'Content-Type': 'application/json'
+			}
+			}).then(res => res.json())
+			.then(response => console.log('Success:', JSON.stringify(response)))
+			.catch(error => console.error('Error:', error));
+			}
+		};
 
 	return (
 		<div className="view view-home">
@@ -90,14 +137,14 @@ const Home = () => {
 				<div className={`results ${quizCounter % 2 == 0 ? "even" : "odd"}`}>
 					<h3>Top results:</h3>
 					<div className="results-list">
-						<ul>
+						<ul onClick={e => selectCity(e)}>
 							<li>
 								<div>
 									<img src="./MIA.jpg" />
 									<span>Miami</span>
 								</div>
 
-								<NavLink to="/forms?city=Miami">Check prices</NavLink>
+								<NavLink  to="/forms?city=Miami" data="Miami">Check prices</NavLink>
 							</li>
 							<li>
 								<div>
@@ -105,7 +152,7 @@ const Home = () => {
 									<span>Los Angeles</span>
 								</div>
 
-								<NavLink to="/forms?city=Los%20Angeles">Check prices</NavLink>
+								<NavLink to="/forms?city=Los%20Angeles" data="Los Angeles">Check prices</NavLink>
 							</li>
 							<li>
 								<div>
@@ -113,7 +160,7 @@ const Home = () => {
 									<span>New York</span>
 								</div>
 
-								<NavLink to="/forms?city=New%20York">Check prices</NavLink>
+								<NavLink to="/forms?city=New%20York" data="New York">Check prices</NavLink>
 							</li>
                             {!quizShow && (<>
                             <li>
@@ -122,7 +169,7 @@ const Home = () => {
 									<span>New Delhi</span>
 								</div>
 
-								<NavLink to="/forms?city=New%20Delhi">Check prices</NavLink>
+								<NavLink to="/forms?city=New%20Delhi" data="New Delhi">Check prices</NavLink>
 							</li>
                             <li>
 								<div>
@@ -130,7 +177,7 @@ const Home = () => {
 									<span>Tokyo</span>
 								</div>
 
-								<NavLink to="/forms?city=Tokyo">Check prices</NavLink>
+								<NavLink to="/forms?city=Tokyo" data="Tokyo">Check prices</NavLink>
 							</li> </>)}
 						</ul>
 					</div>

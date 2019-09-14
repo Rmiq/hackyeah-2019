@@ -20,33 +20,31 @@ const App = () => {
 						<ul>
 							<li>
 								<NavLink exact to="/">
-									<i className="fas fa-search" />
 									Query Builder
 								</NavLink>
 							</li>
 							<li>
 								<NavLink exact to="/forms">
-									<i className="fas fa-hammer" />
 									Form Creator
 								</NavLink>
 							</li>
 							<li>
 								<NavLink exact to="/transfer">
-									<i className="fas fa-download" />
 									Data Transfer
 								</NavLink>
 							</li>
 							<li>
 								<NavLink exact to="/history">
-									<i className="fas fa-history" />
 									History
 								</NavLink>
 							</li>
 						</ul>
 					</div>
                     <div className="user-section">
-                        
-
+                    <i class="fa fa-user"></i>
+                        <span>
+                            Login
+                        </span>
                     </div>
 				</header>
 

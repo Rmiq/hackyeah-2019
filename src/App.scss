@@ -14,11 +14,13 @@
         .menu-button {
             display: flex;
             align-items: center;
+            width: 60px;
             @include respond-to(large){
                 display: none;
             }
             i {
                 font-size: 2rem;
+                color: $primary;
             }
         }
         img {
@@ -45,9 +47,17 @@
         }
 
         .user-section {
-            width: 40px;
-            height: 40px;
-            background: red;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           width: 60px;
+           span {
+               margin-left: 0.5rem;
+               color: $primary;
+           }
+           i {
+               color: $primary;
+           }
         }
 	}
 

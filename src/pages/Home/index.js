@@ -8,12 +8,20 @@ const quizQuestions = [
 		answers: ["Business trip", "City break", "Holidays"]
 	},
 	{
-		question: "2nd questions",
-		answers: ["1", "2", "3"]
+		question: "What age are you?",
+		answers: ["<18", "18-25", ">25"]
 	},
 	{
-		question: "3rd questions",
-		answers: ["1", "2", "3"]
+		question: "What climate do you prefer?",
+		answers: ["Tropical", "Continental", "Not relevant"]
+	},
+	{
+		question: "How far would you like to go",
+		answers: ["Close", "Medium", "Far away"]
+	},
+	{
+		question: "What is the preferred price range?",
+		answers: ["$ - $$ ", "$$ - $$$", "$$$ - $$$$"]
 	}
 ];
 
@@ -24,56 +32,62 @@ const Home = () => {
 	const [quizShow, setQuizShow] = useState(true);
 
 	const quizAnswer = e => {
-        console.log(quizCounter,quizQuestions.length - 1);
-		if (
-			e.target.classList.contains("ans") &&
-			quizCounter < quizQuestions.length -1
-		) {
+		console.log(quizCounter, quizQuestions.length - 1);
+		if (e.target.classList.contains("ans") && quizShow - 1) {
 			profile.push(e.target.text);
 		} else if (
-            e.target.classList.contains("ans") &&
-			quizCounter == quizQuestions.length -1
-        ){
-            setQuizShow(false);
-            profile.push(e.target.text);
-            
-            // Make post here
-            console.log(profile);
+			e.target.classList.contains("ans") &&
+			quizCounter == quizQuestions.length - 1
+		) {
+			setQuizShow(false);
+
+			// Make post here
+			console.log(profile);
 		}
-		if (quizCounter < quizQuestions.length - 1) {
+		if (quizShow) {
 			setQuizCounter(quizCounter + 1);
 		}
 	};
 
 	return (
 		<div className="view view-home">
-			<div className="user-quiz">
-				<span>
-					Answer those questions to help us find you a destination
-				</span>
-				<h2>{quizQuestions[quizCounter].question}</h2>
-				<div className="answers">
-					<ul onClick={e => quizAnswer(e)}>
-						<li>
-							<a id="ans-1" class="ans">
-								{quizQuestions[quizCounter].answers[0]}
-							</a>
-						</li>
-						<li>
-							<a id="ans-2" class="ans">
-								{quizQuestions[quizCounter].answers[1]}
-							</a>
-						</li>
-						<li>
-							<a id="ans-3" class="ans">
-								{quizQuestions[quizCounter].answers[2]}
-							</a>
-						</li>
-					</ul>
-				</div>
+			<div className={`user-quiz ${!quizShow ? "done" : "in-progress"} `}>
+				{quizShow ? (
+					<div>
+						<span>
+							Answer those questions to help us find you a
+							destination
+						</span>
+						<h2>{quizQuestions[quizCounter].question}</h2>
+					</div>
+				) : (
+					<h3>Destinations that match your preferences the best:</h3>
+				)}
+
+				{quizShow && (
+					<div className="answers">
+						<ul onClick={e => quizAnswer(e)}>
+							<li>
+								<a id="ans-1" class="ans">
+									{quizQuestions[quizCounter].answers[0]}
+								</a>
+							</li>
+							<li>
+								<a id="ans-2" class="ans">
+									{quizQuestions[quizCounter].answers[1]}
+								</a>
+							</li>
+							<li>
+								<a id="ans-3" class="ans">
+									{quizQuestions[quizCounter].answers[2]}
+								</a>
+							</li>
+						</ul>
+					</div>
+				)}
 			</div>
 			{quizCounter != 0 ? (
-				<div className="results">
+				<div className={`results ${quizCounter % 2 == 0 ? "even" : "odd"}`}>
 					<h3>Top results:</h3>
 					<div className="results-list">
 						<ul>
@@ -83,7 +97,7 @@ const Home = () => {
 									<span>Miami</span>
 								</div>
 
-								<button>Check prices</button>
+								<NavLink to="/forms?city=Miami">Check prices</NavLink>
 							</li>
 							<li>
 								<div>
@@ -91,7 +105,7 @@ const Home = () => {
 									<span>Los Angeles</span>
 								</div>
 
-								<button>Check prices</button>
+								<NavLink to="/forms?city=Los%20Angeles">Check prices</NavLink>
 							</li>
 							<li>
 								<div>
@@ -99,8 +113,25 @@ const Home = () => {
 									<span>New York</span>
 								</div>
 
-								<button>Check prices</button>
+								<NavLink to="/forms?city=New%20York">Check prices</NavLink>
 							</li>
+                            {!quizShow && (<>
+                            <li>
+								<div>
+									<img src="./DEL.jpg" />
+									<span>New Delhi</span>
+								</div>
+
+								<NavLink to="/forms?city=New%20Delhi">Check prices</NavLink>
+							</li>
+                            <li>
+								<div>
+									<img src="./NRT.jpg" />
+									<span>Tokyo</span>
+								</div>
+
+								<NavLink to="/forms?city=Tokyo">Check prices</NavLink>
+							</li> </>)}
 						</ul>
 					</div>
 				</div>

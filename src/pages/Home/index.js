@@ -26,11 +26,11 @@ const quizQuestions = [
 ];
 
 const answers = [];
-let city = "";
 
 const Home = () => {
 	const [quizCounter, setQuizCounter] = useState(0);
-	const [quizShow, setQuizShow] = useState(true);
+    const [quizShow, setQuizShow] = useState(true);
+    const [data, setData] = useState();
 
 	const quizAnswer = e => {
 		if (
@@ -47,15 +47,16 @@ const Home = () => {
 		}
 		if (quizShow) {
 			setQuizCounter(quizCounter + 1);
-		}
+        }
+        console.log(data);
 	};
 	const selectCity = e => {
 		e.preventDefault();
-		city = e.target.getAttribute("data");
+		const city = e.target.getAttribute("data");
 		if (city != "" && e.target.tagName == "A") {
-			var url =
+			const url =
 				"https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mypostlambda";
-			var data = { answers, city };
+			const data = { answers, city };
 
 			fetch(url, {
 				method: "POST",
@@ -72,6 +73,14 @@ const Home = () => {
 		}
 	};
 
+    useEffect(() => {
+		const url =
+			"https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda";
+		fetch(url)
+			.then(response => response.json())
+            .then(res => setData(res));
+    }, []);
+    
 	return (
 		<div className="view view-home">
 			<div className={`user-quiz ${!quizShow ? "done" : "in-progress"} `}>
@@ -91,17 +100,17 @@ const Home = () => {
 					<div className="answers">
 						<ul onClick={e => quizAnswer(e)}>
 							<li>
-								<a id="ans-1" class="ans">
+								<a id="ans-1" className="ans">
 									{quizQuestions[quizCounter].answers[0]}
 								</a>
 							</li>
 							<li>
-								<a id="ans-2" class="ans">
+								<a id="ans-2" className="ans">
 									{quizQuestions[quizCounter].answers[1]}
 								</a>
 							</li>
 							<li>
-								<a id="ans-3" class="ans">
+								<a id="ans-3" className="ans">
 									{quizQuestions[quizCounter].answers[2]}
 								</a>
 							</li>

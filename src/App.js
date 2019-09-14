@@ -12,12 +12,12 @@ const App = () => {
 		<div className="app">
 			<Router>
 				<header className="app-header">
-                    <a className="menu-button">
-                        <i class="fa fa-bars"></i>
-                    </a>
-                    <NavLink exact to="/">
-					<img src="./logo_lot_en.svg" />
-                    </NavLink>
+					<a className="menu-button">
+						<i className="fa fa-bars"></i>
+					</a>
+					<NavLink exact to="/">
+						<img src="./logo_lot_en.svg" />
+					</NavLink>
 					<div className="app-navigation">
 						<ul>
 							<li>
@@ -35,20 +35,18 @@ const App = () => {
 									Prepare for travel
 								</NavLink>
 							</li>
-                            <li>
-                                Customer service
-                            </li>
-                            <li>
-                                Miles & More
-                            </li>
+							<li>
+								<a>Customer service</a>
+							</li>
+							<li>
+								<a>Miles & More</a>
+							</li>
 						</ul>
 					</div>
-                    <div className="user-section">
-                    <i class="fa fa-user"></i>
-                        <span>
-                            Login
-                        </span>
-                    </div>
+					<div className="user-section">
+						<i class="fa fa-user"></i>
+						<span>Login</span>
+					</div>
 				</header>
 
 				<img className="background-image" src="./clouds.png" />

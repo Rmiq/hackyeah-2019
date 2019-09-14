@@ -1,0 +1,48 @@
+.view{
+    &-pickerWrapper{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    //react-dates ovverides
+    .CalendarDay{
+        border: none;
+    }
+.CalendarDay__selected, .CalendarDay__selected:active, .CalendarDay__selected:hover{
+    background: #094185;
+    border: none;
+    color: #fff;
+}
+.CalendarDay__selected_span{
+    background: #1976D2;
+    border: none;
+    color: #fff;
+}
+.CalendarDay__selected_span:active, .CalendarDay__selected_span:hover {
+    background: #2196F3;
+    border: none;
+    color: #fff;
+}
+.CalendarDay__selected_start{
+    border-bottom-left-radius:20px;
+    border-top-left-radius: 20px;
+}
+.CalendarDay__selected_end{
+    border-bottom-right-radius:20px;
+    border-top-right-radius: 20px;
+}
+.DateInput_input__focused{
+    outline: 0;
+    background: #fff;
+    border: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 2px solid #094185;
+    border-left: 0;
+}
+
+}
+
+
+

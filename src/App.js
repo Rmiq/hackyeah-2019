@@ -12,9 +12,9 @@ const App = () => {
 		<div className="app">
 			<Router>
 				<header className="app-header">
-                    <a className="menu-button">
-                        <i class="fa fa-bars"></i>
-                    </a>
+					<a className="menu-button">
+						<i class="fa fa-bars"></i>
+					</a>
 					<img src="./logo_lot_en.svg" />
 					<div className="app-navigation">
 						<ul>
@@ -40,19 +40,12 @@ const App = () => {
 							</li>
 						</ul>
 					</div>
-<<<<<<< HEAD
 					<div className="user-section">
-
-
-					</div>
-=======
-                    <div className="user-section">
-                    <i class="fa fa-user"></i>
-                        <span>
-                            Login
+						<i class="fa fa-user"></i>
+						<span>
+							Login
                         </span>
-                    </div>
->>>>>>> 17734a88718b9178848f5b241e63bf2e603d80a0
+					</div>
 				</header>
 
 				<img className="background-image" src="./clouds.png" />

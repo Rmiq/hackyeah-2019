@@ -5,17 +5,12 @@ const History = () => {
 	const [data, setData] = useState();
 
 	useEffect(() => {
-		// const response = await fetch('https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda');
-		// const data = await response.json();
-		// console.log(data);
 		const url = "https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda";
 		fetch(url)
 			.then(response => response.json())
 			.then(res => setData(res));
 
 	}, []);
-
-	console.log(data);
 
 	return (
 		<div className="view view-history">

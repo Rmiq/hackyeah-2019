@@ -68,12 +68,11 @@
                 justify-content: center;
 				a {
 					display: block;
-					padding: 0.5rem 0.7rem;
+					padding: 1rem 0.7rem;
 					background: $primary;
 					color: white;
 					margin-top: 1rem;
                     text-align: center;
-                    height: 100%;
                     @include respond-to(large) {
                         padding: 1rem 2rem;
 					margin: 0 1rem;
@@ -108,7 +107,7 @@
 				max-width: 800px;
 				margin: 0 auto;
 				display: flex;
-				flex-direction: column;
+                flex-direction: column;
 				li {
 					display: flex;
 					justify-content: space-between;
@@ -121,20 +120,30 @@
 					box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06),
 						0 3px 6px rgba(0, 0, 0, 0.23);
 					@include respond-to(large) {
-                        flex-direction: column;
+                        flex-direction: row;
+                        align-items: center;
                         height: 80px;
+                        padding-bottom: 0;
 					}
 					div {
 						height: 100%;
 						display: flex;
                         align-items: flex-start;
                         flex-direction: column;
+                        @include respond-to(large) {
+                            flex-direction: row;
+                            align-items: center;
+                        }
 
 					}
 					img {
                         height: 100%;
                         width: 100%;
                         padding-bottom: 0.5rem;
+                        @include respond-to(large) {
+                            width: auto;
+                            padding-bottom: 0;
+                        }
 					}
 
 					a {

@@ -27,7 +27,7 @@ const App = () => {
 						<img src="./logo_lot_en.svg" />
 					</NavLink>
 					<div id='app-navigation' className={`app-navigation ${active ? 'active' : ''}`}>
-						<ul>
+						<ul onClick ={e=>setActive(false)}>
 							<li>
 								<NavLink exact to="/forms">
 									Book a flight

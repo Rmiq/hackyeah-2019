@@ -67,21 +67,28 @@
 				}
 				
 				li {
+					&:last-child{
+						a{
+							padding-bottom: 1.1rem;
+						}
+							
+						}
 					a {		
-						padding: 0.6rem 1.5rem;
+						padding: 0.55rem 1.4rem;
 						color: $primary;
 						font-size: 1.1rem;
 						font-weight: bold;
+						
 						@include respond-to(large){
 							padding: 0.5rem 1.5rem;
-							font-size: 1rem;
+							font-size: 1.2rem;
 						}
 						&.active {
 							color: $secondary;
 							font-size: 1.2rem;
 							text-align: left;
 							@include respond-to(large){
-								font-size: 17px;
+								font-size: 20px;
 							}
 						}				
 

@@ -5,10 +5,14 @@
         flex-direction: column;
     }
 
+.form-wrapper{
+    display: flex;
+    align-items: center;
+}
     //react-dates ovverides
-    .CalendarDay{
+.CalendarDay{
         border: none;
-    }
+}
 .CalendarDay__selected, .CalendarDay__selected:active, .CalendarDay__selected:hover{
     background: #094185;
     border: none;

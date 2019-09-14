@@ -13,7 +13,7 @@ const App = () => {
 			<Router>
 				<header className="app-header">
 					<a className="menu-button">
-						<i class="fa fa-bars"></i>
+						<i className="fa fa-bars"></i>
 					</a>
 					<img src="./logo_lot_en.svg" />
 					<div className="app-navigation">
@@ -41,7 +41,7 @@ const App = () => {
 						</ul>
 					</div>
 					<div className="user-section">
-						<i class="fa fa-user"></i>
+						<i className="fa fa-user"></i>
 						<span>
 							Login
                         </span>

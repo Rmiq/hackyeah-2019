@@ -12,6 +12,8 @@
 		justify-content: space-between;
 		padding: 0.5rem 2rem;
 		height: 80px;
+		z-index: 999;
+		
 
 		.menu-button {
 			display: flex;
@@ -32,30 +34,57 @@
 
 		a {
 			display: flex;
-			justify-content: center;
 			align-items: center;
-		}
-		.app-navigation {
-			display: none;
-			@include respond-to(large) {
+			justify-content: flex-start;
+
+
+			@include respond-to(large){
 				display: flex;
 				justify-content: center;
 				align-items: center;
 			}
-			ul {
+			
+		}
+		.app-navigation {
+			display:none;
+			position: absolute;
+			left: 0;
+			margin-top: 70px;	
+			width: 100%;
+			background-color: white;
+			@include respond-to(large) {
 				display: flex;
+				position: static;
 				justify-content: center;
 				align-items: center;
+				margin-top: 0;
+			}
+			ul {
+				@include respond-to(large){
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+				
 				li {
-					a {
-						padding: 0.5rem 1.5rem;
+					a {		
+						padding: 0.6rem 1.5rem;
 						color: $primary;
-						font-size: 1rem;
-                        font-weight: bold;
-                        &.active {
-                            color: $secondary;
-                            font-size: 17px;
-                        }
+						font-size: 1.1rem;
+						font-weight: bold;
+						@include respond-to(large){
+							padding: 0.5rem 1.5rem;
+							font-size: 1rem;
+						}
+						&.active {
+							color: $secondary;
+							font-size: 1.2rem;
+							text-align: left;
+							@include respond-to(large){
+								font-size: 17px;
+							}
+						}				
+
 					}
 				}
 			}
@@ -89,5 +118,8 @@
 		max-width: 100%;
 		z-index: -1;
 		opacity: 0.5;
+	}
+	.active{
+		display: block !important;
 	}
 }

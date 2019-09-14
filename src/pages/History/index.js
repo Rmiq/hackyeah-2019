@@ -23,10 +23,11 @@ const History = () => {
 			<div className="history-list">
 				<ul>
 					<li>
-							<span>Header1</span>
-							<span>Header2</span>
-							<span>Header3</span>
-							<span>Header4</span>
+							<span>Purpose</span>
+							<span>Age</span>
+							<span>Climat</span>
+							<span>Distance</span>
+							<span>Price</span>
 					</li>
 					{data && data.Items.map(items=> (
 						<li key={items.date}>

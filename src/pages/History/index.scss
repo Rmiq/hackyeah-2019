@@ -2,11 +2,24 @@
 	.history-list {
         margin-top: 1rem;
         padding-bottom: 4rem;
-        li {
-            margin: 0.25rem 0;
+        table{
+            border-collapse: collapse;
+            width: 100%;
         }
-		span {
+        tr {
+            margin: 0.25rem 0;
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            &:nth-child(even){
+                background-color: #dddddd;
+            }
+        }
+		th {
             margin-right: 1rem;
-		}
+            border: 1px solid #dddddd;
+            padding: 8px;
+        }
+        
 	}
 }

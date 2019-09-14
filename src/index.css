@@ -30,6 +30,7 @@ a {
 }
 a:hover {
   cursor: pointer;
+  text-decoration: none !important;
 }
 
 /*# sourceMappingURL=index.css.map */

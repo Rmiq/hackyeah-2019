@@ -1,0 +1,11 @@
+//Variables
+$primary: #083377;
+
+//Mixins
+@mixin respond-to($media) {
+    @if $media == large {
+        @media only screen and (min-width: 1024px) {
+            @content;
+        }
+    }
+}

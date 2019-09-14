@@ -1,18 +1,18 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import "./index.scss";
 
-const history = () => {
+const History = () => {
 
 	useEffect(() => {
-	    // const response = await fetch('https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda');
+		// const response = await fetch('https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda');
 		// const data = await response.json();
 		// console.log(data);
-	   const url = "https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda";
-       fetch(url)
-           .then(response => response.json())
-           .then(data => this.setState({ dataPlaces: data.body }));
+		const url = "https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda";
+		fetch(url)
+			.then(response => response.json())
+			.then(data => this.setState({ dataPlaces: data.body }));
 	}, []);
-	
+
 
 
 	return (
@@ -23,9 +23,9 @@ const history = () => {
 					<li>
 						<div>
 							<span>14-09-2019 20:00:01</span>
-                            <span>User Name</span>
+							<span>User Name</span>
 							<span>Read</span>
-                            <span>Query search for API001 with filter expression for customValue 2</span>
+							<span>Query search for API001 with filter expression for customValue 2</span>
 						</div>
 					</li>
 				</ul>
@@ -33,4 +33,4 @@ const history = () => {
 		</div>
 	);
 };
-export default history;
+export default History;

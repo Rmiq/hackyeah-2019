@@ -45,8 +45,29 @@
     border-bottom: 2px solid #094185;
     border-left: 0;
 }
-
+.DayPicker_transitionContainer{
+    width: 618px;
+    height: 319px !important;
 }
+.DateInput_fang.DateInput_fang_1{
+    display: none;
+}
+.DateRangePicker_picker{
+    left:-50% !important;
+}
+.price{
+    font-size: 10px;
+    
+}
+.book-button{
+    margin-left: 1rem;
+    background: #094185 !important;
+    position: absolute;
+    top: 70%;
+}
+}
+
+
 
 
 

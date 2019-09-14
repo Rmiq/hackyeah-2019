@@ -25,27 +25,50 @@ const quizQuestions = [
 	}
 ];
 
-const profile = [];
+const answers = [];
+let city = "";
 
 const Home = () => {
 	const [quizCounter, setQuizCounter] = useState(0);
 	const [quizShow, setQuizShow] = useState(true);
 
 	const quizAnswer = e => {
-		if (e.target.classList.contains("ans") && quizCounter < quizQuestions.length - 1) {
-			profile.push(e.target.text);
+		if (
+			e.target.classList.contains("ans") &&
+			quizCounter < quizQuestions.length - 1
+		) {
+			answers.push(e.target.text);
 		} else if (
 			e.target.classList.contains("ans") &&
 			quizCounter == quizQuestions.length - 1
 		) {
-            profile.push(e.target.text);
+			answers.push(e.target.text);
 			setQuizShow(false);
-
-			// Make post here
-			console.log(profile);
 		}
 		if (quizShow) {
 			setQuizCounter(quizCounter + 1);
+		}
+	};
+	const selectCity = e => {
+		e.preventDefault();
+		city = e.target.getAttribute("data");
+		if (city != "" && e.target.tagName == "A") {
+			var url =
+				"https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mypostlambda";
+			var data = { answers, city };
+
+			fetch(url, {
+				method: "POST",
+				body: JSON.stringify(data),
+				headers: {
+					"Content-Type": "application/json"
+				}
+			})
+				.then(res => res.json())
+				.then(response =>
+					console.log("Success:", JSON.stringify(response))
+				)
+				.catch(error => console.error("Error:", error));
 		}
 	};
 
@@ -87,17 +110,23 @@ const Home = () => {
 				)}
 			</div>
 			{quizCounter != 0 ? (
-				<div className={`results ${quizCounter % 2 == 0 ? "even" : "odd"}`}>
+				<div
+					className={`results ${
+						quizCounter % 2 == 0 ? "even" : "odd"
+					}`}
+				>
 					<h3>Top results:</h3>
 					<div className="results-list">
-						<ul>
+						<ul onClick={e => selectCity(e)}>
 							<li>
 								<div>
 									<img src="./MIA.jpg" />
 									<span>Miami</span>
 								</div>
 
-								<NavLink to="/forms?city=Miami">Check prices</NavLink>
+								<NavLink to="/forms?city=Miami" data="Miami">
+									Check prices
+								</NavLink>
 							</li>
 							<li>
 								<div>
@@ -105,7 +134,12 @@ const Home = () => {
 									<span>Los Angeles</span>
 								</div>
 
-								<NavLink to="/forms?city=Los%20Angeles">Check prices</NavLink>
+								<NavLink
+									to="/forms?city=Los%20Angeles"
+									data="Los Angeles"
+								>
+									Check prices
+								</NavLink>
 							</li>
 							<li>
 								<div>
@@ -113,25 +147,43 @@ const Home = () => {
 									<span>New York</span>
 								</div>
 
-								<NavLink to="/forms?city=New%20York">Check prices</NavLink>
+								<NavLink
+									to="/forms?city=New%20York"
+									data="New York"
+								>
+									Check prices
+								</NavLink>
 							</li>
-                            {!quizShow && (<>
-                            <li>
-								<div>
-									<img src="./DEL.jpg" />
-									<span>New Delhi</span>
-								</div>
+							{!quizShow && (
+								<>
+									<li>
+										<div>
+											<img src="./DEL.jpg" />
+											<span>New Delhi</span>
+										</div>
 
-								<NavLink to="/forms?city=New%20Delhi">Check prices</NavLink>
-							</li>
-                            <li>
-								<div>
-									<img src="./NRT.jpg" />
-									<span>Tokyo</span>
-								</div>
+										<NavLink
+											to="/forms?city=New%20Delhi"
+											data="New Delhi"
+										>
+											Check prices
+										</NavLink>
+									</li>
+									<li>
+										<div>
+											<img src="./NRT.jpg" />
+											<span>Tokyo</span>
+										</div>
 
-								<NavLink to="/forms?city=Tokyo">Check prices</NavLink>
-							</li> </>)}
+										<NavLink
+											to="/forms?city=Tokyo"
+											data="Tokyo"
+										>
+											Check prices
+										</NavLink>
+									</li>{" "}
+								</>
+							)}
 						</ul>
 					</div>
 				</div>

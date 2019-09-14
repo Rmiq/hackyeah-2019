@@ -6,13 +6,18 @@ function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
-
+                <ul>
+                    <li>
+                     <a>1</a>   
+                     <a>2</a>
+                    </li>
+                </ul>
             </header>
 			<main className="App-main">
-
+                <div>Quiz</div>
             </main>
 			<footer className="App-footer">
-                <img src="./logo.png"></img>
+                All rights reserved.
             </footer>
 		</div>
 	);

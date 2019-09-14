@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.scss";
 
 const History = () => {
+	const [data, setData] = useState();
 
 	useEffect(() => {
 		// const response = await fetch('https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda');
@@ -10,10 +11,11 @@ const History = () => {
 		const url = "https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda";
 		fetch(url)
 			.then(response => response.json())
-			.then(data => this.setState({ dataPlaces: data.body }));
+			.then(res => setData(res));
+
 	}, []);
 
-
+	console.log(data);
 
 	return (
 		<div className="view view-history">
@@ -21,13 +23,21 @@ const History = () => {
 			<div className="history-list">
 				<ul>
 					<li>
-						<div>
-							<span>14-09-2019 20:00:01</span>
-							<span>User Name</span>
-							<span>Read</span>
-							<span>Query search for API001 with filter expression for customValue 2</span>
-						</div>
+						<span>Header1</span>
+						<span>Header2</span>
+						<span>Header3</span>
+						<span>Header4</span>
 					</li>
+					{data && data.Items.map(items => (
+						<li key={items.date}>
+							<span>{items.answers[0]}</span>
+							<span>{items.answers[1]}</span>
+							<span>{items.answers[2]}</span>
+							<span>{items.answers[3]}</span>
+							<span>{items.answers[4]}</span>
+							<span>{items.answers[5]}</span>
+						</li>
+					))}
 				</ul>
 			</div>
 		</div>

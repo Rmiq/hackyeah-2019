@@ -1,7 +1,32 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-header {
-  
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 70px;
+    border-bottom: 1px solid #ddd;
+    background: #fefefe;
+}
+
+.App-main {
+    padding: 1.5rem;
+}
+
+.App-footer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100px;
+    border-right: 1px solid #ccc;
+    background: #fcfcfc;
+    padding: 1rem;
+    img {
+        width: 80%;
+    }
 }

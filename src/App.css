@@ -1,0 +1,93 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3rem;
+}
+.app .app-header {
+  background: white;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  height: 80px;
+}
+.app .app-header .menu-button {
+  display: flex;
+  align-items: center;
+  width: 60px;
+}
+@media only screen and (min-width: 1024px) {
+  .app .app-header .menu-button {
+    display: none;
+    width: 200px;
+  }
+}
+.app .app-header .menu-button i {
+  font-size: 2rem;
+  color: #083377;
+}
+.app .app-header img {
+  transform: scale(0.7);
+}
+.app .app-header a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app .app-header .app-navigation {
+  display: none;
+}
+@media only screen and (min-width: 1024px) {
+  .app .app-header .app-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.app .app-header .app-navigation ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app .app-header .app-navigation ul li a {
+  padding: 0.5rem 1.5rem;
+  color: #083377;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.app .app-header .app-navigation ul li a.active {
+  color: #012155;
+  font-size: 17px;
+}
+.app .app-header .user-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+}
+@media only screen and (min-width: 1024px) {
+  .app .app-header .user-section {
+    width: 200px;
+  }
+}
+.app .app-header .user-section span {
+  margin-left: 0.5rem;
+  color: #083377;
+}
+@media only screen and (min-width: 1024px) {
+  .app .app-header .user-section span {
+    margin-left: 1rem;
+  }
+}
+.app .app-header .user-section i {
+  color: #083377;
+}
+.app .background-image {
+  position: fixed;
+  bottom: 0;
+  max-width: 100%;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/*# sourceMappingURL=App.css.map */

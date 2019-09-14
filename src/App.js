@@ -44,8 +44,10 @@ const App = () => {
 						</ul>
 					</div>
 					<div className="user-section">
-						<i class="fa fa-user"></i>
-						<span>Login</span>
+						<i className="fa fa-user"></i>
+						<span>
+							Login
+                        </span>
 					</div>
 				</header>
 

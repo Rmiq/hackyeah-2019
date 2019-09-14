@@ -24,7 +24,7 @@
         }
     
         span {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #999;
         }
     
@@ -78,14 +78,16 @@
         text-align: center;
         @include respond-to(large) {
             width: 70%;
-            padding: 4rem;
-            margin-top: 5rem;
+            padding: 2rem;
+            margin-top: 2
         }
 
         .results-list {
             width: 100%;
             ul {
                 width: 100%;
+                max-width: 800px;
+                margin: 0 auto;
                 li {
                     display: flex;
                     justify-content: space-between;

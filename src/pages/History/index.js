@@ -22,13 +22,6 @@ const History = () => {
 			<h2>History</h2>
 			<div className="history-list">
 				<ul>
-					<li>
-							<span>Purpose</span>
-							<span>Age</span>
-							<span>Climat</span>
-							<span>Distance</span>
-							<span>Price</span>
-					</li>
 					{data && data.Items.map(items => (
 						<li key={items.date}>
 							<span>{items.answers[0]}</span>
@@ -37,6 +30,7 @@ const History = () => {
 							<span>{items.answers[3]}</span>
 							<span>{items.answers[4]}</span>
 							<span>{items.answers[5]}</span>
+							<span>{items.city}</span>
 						</li>
 					))}
 				</ul>

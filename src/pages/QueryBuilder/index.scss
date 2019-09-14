@@ -1,0 +1,123 @@
+.view-queryBuilder {
+	.query-section {
+		margin: 1rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+		select {
+			border: 1px solid #ccc;
+			font-size: 16px;
+			line-height: 44px;
+			width: calc(50% - 1rem);
+			border-radius: 0 !important;
+			background: white;
+			-webkit-appearance: none;
+            position: relative;
+            padding: 0 2rem;
+			background-image: linear-gradient(45deg, transparent 50%, #333 50%),
+				linear-gradient(135deg, #333 50%, transparent 50%);
+			background-position: calc(100% - 20px) calc(1em + 2px),
+				calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+			background-size: 5px 5px, 5px 5px, 1px 1.5em;
+            background-repeat: no-repeat;
+            margin-bottom: 1rem;
+		}
+
+		input {
+			border: 1px solid #ccc;
+			font-size: 16px;
+			line-height: 44px;
+            padding: 0 2rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            &.disabled{
+                color: #ccc;
+                border: 1px solid #eee;
+                cursor: not-allowed;
+            }
+		}
+
+		button {
+			border: 1px solid #ccc;
+			cursor: pointer;
+			font-size: 16px;
+            line-height: 44px;
+            margin-top: 1rem;
+			width: 150px;
+			padding: 0rem;
+            -webkit-appearance: none;
+            margin-left: auto;
+        }
+        label {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 0.25rem;
+        }
+	}
+
+	.results-section {
+		.metadata {
+			display: flex;
+			p {
+				margin-right: 3rem;
+				color: #555;
+			}
+		}
+		ul {
+			width: 100%;
+			li {
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				.header {
+					width: 100%;
+					background-color: white;
+					padding: 0.75rem;
+					display: flex;
+					align-items: center;
+					border-bottom: 1px solid #ddd;
+					cursor: pointer;
+					i {
+						padding-right: 0.75rem;
+						color: #333;
+						font-size: 12px;
+						margin-top: 2px;
+					}
+					h3 {
+						padding: 0;
+						color: #333;
+						font-size: 14px;
+					}
+				}
+
+				.details {
+					display: none;
+					width: 100%;
+					padding: 0.5rem 1rem;
+					padding-left: 2rem;
+					border-right: 1px solid #eee;
+					background: #f3f3f3;
+					&.visible {
+						display: block;
+					}
+
+					div {
+						display: flex;
+						align-items: center;
+						padding: 0.125rem 0;
+						span {
+							width: 100px;
+							color: #333;
+							font-size: 12px;
+							line-height: 14px;
+						}
+						p {
+							font-size: 12px;
+							padding: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

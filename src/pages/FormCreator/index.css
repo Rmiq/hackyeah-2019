@@ -20,6 +20,9 @@
   border: none;
   color: #fff;
 }
+.view .CalendarDay__default:hover {
+  border: none;
+}
 .view .CalendarDay__selected_span:active, .view .CalendarDay__selected_span:hover {
   background: #2196F3;
   border: none;
@@ -43,14 +46,24 @@
   border-left: 0;
 }
 .view .DayPicker_transitionContainer {
-  width: 618px;
+  width: 100%;
   height: 319px !important;
+}
+@media only screen and (min-width: 1024px) {
+  .view .DayPicker_transitionContainer {
+    width: 618px;
+  }
 }
 .view .DateInput_fang.DateInput_fang_1 {
   display: none;
 }
 .view .DateRangePicker_picker {
-  left: -50% !important;
+  left: -25% !important;
+}
+@media only screen and (min-width: 1024px) {
+  .view .DateRangePicker_picker {
+    left: -75% !important;
+  }
 }
 .view .price {
   font-size: 10px;
@@ -58,8 +71,47 @@
 .view .book-button {
   margin-left: 1rem;
   background: #094185 !important;
+}
+.view .CalendarDay__blocked_out_of_range {
+  width: auto !important;
+  height: auto !important;
+  padding-bottom: 2rem;
+}
+.view .total-wrapper {
+  display: flex;
+  align-items: center;
+  font-size: 26px;
+}
+.view .total-wrapper span {
+  color: #094185;
+  font-weight: 900;
+  font-size: 30px;
+}
+.view .city {
+  color: #094185;
+  border-bottom: 3px solid #000;
+}
+.view .bottom-wrapper {
+  z-index: 20;
   position: absolute;
   top: 70%;
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  margin-left: 1rem;
+}
+@media only screen and (min-width: 1024px) {
+  .view .bottom-wrapper {
+    width: 618px;
+  }
+}
+.view .CalendarMonthGrid {
+  width: 100%;
+}
+@media only screen and (min-width: 1024px) {
+  .view .CalendarMonthGrid {
+    width: 1200px;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

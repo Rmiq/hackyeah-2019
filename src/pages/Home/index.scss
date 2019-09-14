@@ -1,32 +1,52 @@
+@import "./../../variables.scss";
+
 .view-home {
-    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     .user-quiz {
-        margin-top: 5rem;
-        width: 60vw;
+        margin: 0 auto;
+        margin-top: 3rem;
         background: white;
         border-radius: 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        padding: 4rem;
+        padding: 2rem 1rem;
+        width: 90%;
+        text-align: center;
+        @include respond-to(large){
+            width: 60%;
+            padding: 4rem;
+            margin-top: 5rem;
+        }
 
         h2 {
-            font-size: 3rem;
+            font-size: 2rem;
+            @include respond-to(large){
+                font-size: 3rem;
+            }
         }
 
         ul {
             display: flex;
-            margin-top: 3rem;
+            flex-direction: column;
+            margin-top: 1rem;
+
+            @include respond-to(large){
+                flex-direction: row;
+            }
             li {
+ 
                 a {
+                    display: block;
                     padding: 1rem 2rem;
                     margin: 0 1rem;
-                    background: #1244DD;
+                    background: $primary;
                     color: white;
+                    margin-top: 1rem;
+                    text-align: center;
                     &:hover {
                         cursor: pointer;
                     }
@@ -37,9 +57,10 @@
 
     .standard-search {
         margin-top: 2rem;
+        text-align: center;
         a {
             text-decoration: underline;
-            color: #1244DD;
+            color: $primary;
         }
     }
 	

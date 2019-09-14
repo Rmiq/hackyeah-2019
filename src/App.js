@@ -12,39 +12,47 @@ const App = () => {
 		<div className="app">
 			<Router>
 				<header className="app-header">
+                    <a className="menu-button">
+                        <i class="fa fa-bars"></i>
+                    </a>
 					<img src="./logo_lot_en.svg" />
 					<div className="app-navigation">
 						<ul>
 							<li>
 								<NavLink exact to="/">
-									<i className="fas fa-search" />
 									Query Builder
 								</NavLink>
 							</li>
 							<li>
 								<NavLink exact to="/forms">
-									<i className="fas fa-hammer" />
 									Form Creator
 								</NavLink>
 							</li>
 							<li>
 								<NavLink exact to="/transfer">
-									<i className="fas fa-download" />
 									Data Transfer
 								</NavLink>
 							</li>
 							<li>
 								<NavLink exact to="/history">
-									<i className="fas fa-history" />
 									History
 								</NavLink>
 							</li>
 						</ul>
 					</div>
+<<<<<<< HEAD
 					<div className="user-section">
 
 
 					</div>
+=======
+                    <div className="user-section">
+                    <i class="fa fa-user"></i>
+                        <span>
+                            Login
+                        </span>
+                    </div>
+>>>>>>> 17734a88718b9178848f5b241e63bf2e603d80a0
 				</header>
 
 				<img className="background-image" src="./clouds.png" />

@@ -19,8 +19,6 @@ class DrawGrid extends React.Component {
                 </div>
 
             <div className="container">
-
-                <h2></h2>
                 <table className="grid">
                     <tbody>
                     <tr>

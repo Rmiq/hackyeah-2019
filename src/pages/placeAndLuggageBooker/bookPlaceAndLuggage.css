@@ -3,12 +3,22 @@ h1 {
 }
 
 .container {
-  width: 50%;
   margin: auto;
+}
+@media only screen and (min-width: 1024px) {
+  .container {
+    width: 50%;
+  }
 }
 
 .grid {
-  margin-left: 16%;
+  text-align: center;
+  position: relative;
+}
+@media only screen and (min-width: 1024px) {
+  .grid {
+    margin: 0 auto;
+  }
 }
 
 .grid td {
@@ -52,28 +62,47 @@ li {
 }
 
 .userProfile-form {
-  position: absolute;
-  width: 20%;
-  margin-left: 20px;
-  padding: 12px;
+  background: #F3F3F3;
+  position: relative;
   -webkit-box-shadow: 3px 3px 5px 6px #ccc;
   -moz-box-shadow: 3px 3px 5px 6px #ccc;
   box-shadow: 3px 3px 5px 6px #ccc;
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px;
+}
+@media only screen and (min-width: 1024px) {
+  .userProfile-form {
+    position: absolute;
+    width: 20%;
+    margin-left: 20px;
+    padding: 12px;
+  }
 }
 
 .userSpace {
+  padding: 12px;
   background-color: orange;
 }
 
 .bookLuggage-form {
-  width: 20%;
-  padding: 12px;
+  position: relative;
+  background: #F3F3F3;
   -webkit-box-shadow: 3px 3px 5px 6px #ccc;
   -moz-box-shadow: 3px 3px 5px 6px #ccc;
   box-shadow: 3px 3px 5px 6px #ccc;
-  position: relative;
-  width: 20%;
-  left: 75%;
+  width: 80%;
+  margin: 0 auto;
+  padding: 12px;
+  margin-top: 20px;
+}
+@media only screen and (min-width: 1024px) {
+  .bookLuggage-form {
+    width: 20%;
+    padding: 12px;
+    width: 20%;
+    left: 35%;
+  }
 }
 
 .reservationHeader {
@@ -88,9 +117,27 @@ li {
 }
 
 .text-box {
-  margin-top: 20px;
+  margin-top: 10px;
   position: relative;
-  left: 40%;
+  left: 25%;
+}
+@media only screen and (min-width: 576px) {
+  .text-box {
+    margin-top: 20px;
+    left: 20%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .text-box {
+    margin-top: 20px;
+    left: 38%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .text-box {
+    margin-top: 20px;
+    left: 40%;
+  }
 }
 
 .btn:link,
@@ -133,7 +180,7 @@ li {
 }
 
 .btn-white::after {
-  background-color: #083377;
+  background-color: #ffffff;
 }
 
 .btn:hover::after {

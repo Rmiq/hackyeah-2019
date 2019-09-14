@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import "./App.scss";
 
 import Home from "./pages/Home";
-import FormCreator from "./pages/FormCreator";
+import { FormCreator } from "./pages/FormCreator";
 import DataTransfer from "./pages/DataTransfer";
 import History from "./pages/History";
 
@@ -41,13 +41,13 @@ const App = () => {
 							</li>
 						</ul>
 					</div>
-                    <div className="user-section">
-                        
+					<div className="user-section">
 
-                    </div>
+
+					</div>
 				</header>
 
-                <img  className="background-image" src="./clouds.png"/>
+				<img className="background-image" src="./clouds.png" />
 				<section className="app-content">
 					<Route path="/" exact component={Home} />
 					<Route path="/forms" exact component={FormCreator} />

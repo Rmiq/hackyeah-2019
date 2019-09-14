@@ -15,36 +15,44 @@ const App = () => {
 					<a className="menu-button">
 						<i className="fa fa-bars"></i>
 					</a>
-					<img src="./logo_lot_en.svg" />
+					<NavLink exact to="/">
+						<img src="./logo_lot_en.svg" />
+					</NavLink>
 					<div className="app-navigation">
 						<ul>
 							<li>
-								<NavLink exact to="/">
-									Query Builder
-								</NavLink>
-							</li>
-							<li>
 								<NavLink exact to="/forms">
-									Form Creator
+									Book a flight
 								</NavLink>
 							</li>
 							<li>
 								<NavLink exact to="/transfer">
-									Data Transfer
+									Deals & offers
 								</NavLink>
 							</li>
 							<li>
 								<NavLink exact to="/history">
-									History
+									Prepare for travel
 								</NavLink>
+							</li>
+							<li>
+								<a>Customer service</a>
+							</li>
+							<li>
+								<a>Miles & More</a>
 							</li>
 						</ul>
 					</div>
 					<div className="user-section">
+<<<<<<< HEAD
 						<i className="fa fa-user"></i>
 						<span>
 							Login
                         </span>
+=======
+						<i class="fa fa-user"></i>
+						<span>Login</span>
+>>>>>>> 2d157a68e663d0687395029ef36785f37fe4e275
 					</div>
 				</header>
 

@@ -5,14 +5,25 @@
         align-items: center;
         flex-direction: column;
     }
-
+h2{
+    margin-bottom: 0;
+    margin-top: 10px;
+    @include respond-to(large){
+        margin: 40px 10px 20px 10px;
+    }
+}
 .form-wrapper{
     display: flex;
     align-items: center;
+    flex-direction: column;
+    @include respond-to(large){
+        flex-direction: row;
+    }
 }
     //react-dates ovverides
 .CalendarDay{
         border: none;
+        padding: 5px;
 }
 .CalendarDay__selected, .CalendarDay__selected:active, .CalendarDay__selected:hover{
     background: #094185;
@@ -50,10 +61,12 @@
     border-left: 0;
 }
 .DayPicker_transitionContainer{
-    width: 100%;
-    height: 319px !important;
+    max-width: 100%;
+    height: 410px !important;
+    
 @include respond-to(large){
     width: 618px;
+    height: 355px !important;
 }
 }
 
@@ -61,9 +74,15 @@
     display: none;
 }
 .DateRangePicker_picker{
-    left:-25% !important;
+    left:-3% !important;
     @include respond-to(large){
         left:-75% !important;
+    }
+}
+.SingleDatePicker_picker{
+    left:-70% !important;
+    @include respond-to(large){
+        left:-220% !important;
     }
 }
 .price{
@@ -71,9 +90,13 @@
     
 }
 .book-button{
-    margin-left: 1rem;
+    margin-left:0;
     background: #094185 !important;
-    
+    @include respond-to(large){
+     
+        margin-left: 1rem;
+      
+    }
 }
 
 .CalendarDay__blocked_out_of_range{
@@ -98,16 +121,30 @@
     border-bottom: 3px solid #000;
 }
 .bottom-wrapper{
-    z-index: 20;
-    position: absolute;
-    top: 70%;
-    display: flex;
-    justify-content: space-between;
-    width: auto;
     
-    margin-left: 1rem;
+    position: absolute;
+   top: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: auto;
+    margin-bottom: 30px;
+
+    
+    
+    @include respond-to(medium){
+     
+        top: 67%;
+      
+    }
     @include respond-to(large){
         width: 618px;
+        margin-left: 1rem;
+        
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
     }
 }
 .CalendarMonthGrid{

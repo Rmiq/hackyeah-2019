@@ -5,8 +5,8 @@ import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import './material.scss';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
-import { Checkbox } from "../../components/Checkbox";
-let screenWidth
+
+
 function getParameterByName(name, url) {
 	if (!url) url = window.location.href;
 	name = name.replace(/[\[\]]/g, '\\$&');
@@ -43,7 +43,6 @@ export function FormCreator() {
 	}, []);
 	React.useEffect(() => {
 		let dayClick = document.querySelectorAll('.CalendarDay');
-
 
 		dayClick && dayClick.forEach(e => {
 

@@ -1,0 +1,24 @@
+.view-history .history-list {
+  margin-top: 1rem;
+  padding-bottom: 4rem;
+}
+.view-history .history-list table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.view-history .history-list tr {
+  margin: 0.25rem 0;
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.view-history .history-list tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.view-history .history-list th {
+  margin-right: 1rem;
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+
+/*# sourceMappingURL=index.css.map */

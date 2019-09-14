@@ -5,9 +5,6 @@ const History = () => {
 	const [data, setData] = useState();
 
 	useEffect(() => {
-		// const response = await fetch('https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda');
-		// const data = await response.json();
-		// console.log(data);
 		const url = "https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda";
 		fetch(url)
 			.then(response => response.json())
@@ -15,25 +12,30 @@ const History = () => {
 
 	}, []);
 
-	console.log(data);
-
 	return (
 		<div className="view view-history">
 			<h2>History</h2>
 			<div className="history-list">
-				<ul>
+				<table>
+					<tr>
+						<th>Purpose</th>
+						<th>Age</th>
+						<th>Climate</th>
+						<th>Distance</th>
+						<th>Price</th>
+						<th>City</th>
+					</tr>
 					{data && data.Items.map(items => (
-						<li key={items.date}>
-							<span>{items.answers[0]}</span>
-							<span>{items.answers[1]}</span>
-							<span>{items.answers[2]}</span>
-							<span>{items.answers[3]}</span>
-							<span>{items.answers[4]}</span>
-							<span>{items.answers[5]}</span>
-							<span>{items.city}</span>
-						</li>
+						<tr key={items.date}>
+							<th>{items.answers[0]}</th>
+							<th>{items.answers[1]}</th>
+							<th>{items.answers[2]}</th>
+							<th>{items.answers[3]}</th>
+							<th>{items.answers[4]}</th>
+							<th>{items.city}</th>	
+						</tr>
 					))}
-				</ul>
+				</table>
 			</div>
 		</div>
 	);

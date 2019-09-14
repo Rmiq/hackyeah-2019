@@ -1,67 +1,176 @@
 @import "./../../variables.scss";
 
 .view-home {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    .user-quiz {
-        margin: 0 auto;
-        margin-top: 3rem;
-        background: white;
-        border-radius: 1rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 2rem 1rem;
-        width: 90%;
-        text-align: center;
-        @include respond-to(large){
-            width: 60%;
-            padding: 4rem;
-            margin-top: 5rem;
-        }
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 
-        h2 {
-            font-size: 2rem;
-            @include respond-to(large){
-                font-size: 3rem;
+	.user-quiz {
+		margin: 0 auto;
+		margin-top: 1rem;
+		background: white;
+		border-radius: 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		padding: 2rem 1rem;
+		width: 90%;
+		text-align: center;
+		@include respond-to(large) {
+			width: 70%;
+			padding: 4rem;
+			margin-top: 5rem;
+		}
+
+		&.done {
+			@include respond-to(large) {
+				padding: 1rem;
+				margin-top: 2rem;
+			}
+		}
+
+		span {
+            font-size: 1.1rem;
+            @include respond-to(large) {
+            font-size: 1.3rem;
             }
-        }
+			color: #999;
+		}
 
-        ul {
+		h2 {
+			font-size: 2rem;
+			@include respond-to(large) {
+				font-size: 3rem;
+			}
+		}
+
+		ul {
+			margin-top: 1rem;
             display: flex;
-            flex-direction: column;
-            margin-top: 1rem;
-
-            @include respond-to(large){
-                flex-direction: row;
-            }
-            li {
- 
-                a {
-                    display: block;
-                    padding: 1rem 2rem;
-                    margin: 0 1rem;
-                    background: $primary;
-                    color: white;
-                    margin-top: 1rem;
+            width: 100%;
+            justify-content: space-between;
+			@include respond-to(large) {
+				flex-direction: row;
+			}
+			a {
+				display: flex;
+				flex-direction: column;
+				@include respond-to(large) {
+					flex-direction: row;
+				}
+			}
+			li {
+                padding: 0 0.25rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+				a {
+					display: block;
+					padding: 0.5rem 1rem;
+					background: $primary;
+					color: white;
+					margin-top: 1rem;
                     text-align: center;
-                    &:hover {
-                        cursor: pointer;
+                    height: 100%;
+                    @include respond-to(large) {
+                        padding: 1rem 2rem;
+					margin: 0 1rem;
                     }
-                }
-            }
-        }
-    }
+				}
+			}
+		}
+	}
 
-    .standard-search {
-        margin-top: 2rem;
-        text-align: center;
-        a {
-            text-decoration: underline;
-            color: $primary;
-        }
-    }
-	
+	.results {
+		margin: 0 auto;
+		margin-top: 1rem;
+		background: white;
+		border-radius: 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		padding: 1rem;
+		width: 90%;
+		text-align: center;
+		@include respond-to(large) {
+			width: 70%;
+			padding: 2rem;
+			margin-top: 2;
+		}
+
+		.results-list {
+			width: 100%;
+			ul {
+				width: 100%;
+				max-width: 800px;
+				margin: 0 auto;
+				display: flex;
+				flex-direction: column;
+				li {
+					display: flex;
+					justify-content: space-between;
+					align-items: flex-end;
+					flex-direction: column;
+					height: 100px;
+					width: 100%;
+                    margin: 1rem;
+                    padding-bottom: 0.75rem;
+					box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06),
+						0 3px 6px rgba(0, 0, 0, 0.23);
+					@include respond-to(large) {
+                        flex-direction: column;
+                        height: 80px;
+					}
+					div {
+						height: 100%;
+						display: flex;
+                        align-items: flex-start;
+                        flex-direction: column;
+
+					}
+					img {
+                        height: 100%;
+                        width: 100%;
+					}
+
+					a {
+						-webkit-appearance: none;
+						padding: 0.5rem 1rem;
+						color: white;
+						background: $primary;
+						border-radius: 1rem;
+						font-weight: bold;
+						font-size: 14px;
+						margin-right: 1rem;
+						&:hover {
+							cursor: pointer;
+						}
+					}
+
+					span {
+						font-weight: bold;
+						font-size: 20px;
+						padding: 0.5rem 1rem;
+					}
+				}
+			}
+		}
+
+		&.even {
+			ul {
+				flex-direction: column-reverse;
+			}
+		}
+	}
+
+	.standard-search {
+		margin-top: 2rem;
+		text-align: center;
+		a {
+			text-decoration: underline;
+			color: $primary;
+		}
+	}
 }

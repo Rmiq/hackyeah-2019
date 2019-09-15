@@ -36,7 +36,7 @@ const Home = () => {
 
 	const adjustAnswers = () => {
 		const keyWord = answers[answers.length - 1];
-		data.Items.forEach(item => {
+		data.Items && data.Items.forEach(item => {
 			item.answers.forEach(answer => {
 				if (answer == keyWord) {
 					valueMap.push(item.city);

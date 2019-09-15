@@ -76,7 +76,7 @@ export const FormCreator = withRouter(({ history }) => {
 		})
 
 
-	}, [focusedInput])
+	}, [focusedInput, isChecked])
 	React.useEffect(() => {
 
 		if (endPrice && startPrice) {

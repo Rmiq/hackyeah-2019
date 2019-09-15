@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import "./App.scss";
 import './pages/placeAndLuggageBooker/bookPlaceAndLuggage.scss'
@@ -10,18 +10,24 @@ import bookPlaceAndLuggage from "./pages/placeAndLuggageBooker/bookPlaceAndLugga
 import History from "./pages/History";
 
 const App = () => {
+	const [active,setActive] = useState(false);
+
+	const toggleActive=()=>{
+		active ? setActive(false) : setActive(true);
+	};
+	
 	return (
 		<div className="app">
 			<Router>
 				<header className="app-header">
-					<a className="menu-button">
+					<a className="menu-button" onClick ={e=>toggleActive()}  >
 						<i className="fa fa-bars"></i>
 					</a>
 					<NavLink exact to="/">
 						<img src="./logo_lot_en.svg" />
 					</NavLink>
-					<div className="app-navigation">
-						<ul>
+					<div id='app-navigation' className={`app-navigation ${active ? 'activeNav' : ''}`}>
+						<ul onClick ={e=>setActive(false)}>
 							<li>
 								<NavLink exact to="/book-a-flight">
 									Book a flight

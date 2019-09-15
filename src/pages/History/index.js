@@ -40,11 +40,11 @@ const History = () => {
 							data.Items.sort(sortByDate).map(items => (
 								<tr key={items.date}>
                                     <th>{getDate(items.date)}</th>
-									<th>{items.answers[0]}</th>
-									<th>{items.answers[1]}</th>
-									<th>{items.answers[2]}</th>
-									<th>{items.answers[3]}</th>
-									<th>{items.answers[4]}</th>
+									<th>{items.answers[0] != undefined? items.answers[0] : "-"}</th>
+									<th>{items.answers[1] != undefined? items.answers[1] : "-"}</th>
+									<th>{items.answers[2] != undefined? items.answers[2] : "-"}</th>
+									<th>{items.answers[3] != undefined? items.answers[3] : "-"}</th>
+									<th>{items.answers[4] != undefined? items.answers[4] : "-"}</th>
 									<th>{items.city}</th>
 								</tr>
 							))}

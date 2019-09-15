@@ -8,12 +8,7 @@ class bookPlaceAndLuggage extends React.Component {
         super();
         this.state = {
             seat: [
-                '1','   ','2',
-                '3','    ','4',
-                '5','     ','6',
-                '7','      ','8',
-                'exit 1','       ','exit 2',
-                '9','        ','10'
+                '1','2','3','4','5'
             ],
             seatAvailable: [
 

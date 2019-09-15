@@ -26,12 +26,56 @@ const quizQuestions = [
 ];
 
 const answers = [];
+const valueMap = [];
 
 const Home = () => {
 	const [quizCounter, setQuizCounter] = useState(0);
-    const [quizShow, setQuizShow] = useState(true);
-    const [data, setData] = useState();
+	const [quizShow, setQuizShow] = useState(true);
+	const [data, setData] = useState();
+	const resultsList = useRef(null);
 
+	const adjustAnswers = () => {
+		const keyWord = answers[answers.length - 1];
+		data.Items.forEach(item => {
+			item.answers.forEach(answer => {
+				if (answer == keyWord) {
+					valueMap.push(item.city);
+				}
+			});
+		});
+
+		var counts = {};
+		valueMap.forEach(function(x) {
+			counts[x] = (counts[x] || 0) + 1;
+		});
+
+		const finalRes = Array.from(resultsList.current.children).sort(
+			(a, b) => {
+				if (counts[a.getAttribute("id")] == undefined) {
+					counts[a.getAttribute("id")] = 0;
+				}
+				if (counts[b.getAttribute("id")] == undefined) {
+					counts[b.getAttribute("id")] = 0;
+				}
+				return counts[a.getAttribute("id")] >
+					counts[b.getAttribute("id")]
+					? -1
+					: 1;
+			}
+		);
+
+		Array.from(resultsList.current.children).forEach(li => {
+			li.querySelector(".value").innerHTML = `
+               Relevancy factor: ${counts[li.getAttribute("id")]}
+            `;
+		});
+
+		resultsList.current.innerHTML = "";
+
+		finalRes.forEach(el => {
+			resultsList.current.appendChild(el);
+		});
+	};
 	const quizAnswer = e => {
 		if (
 			e.target.classList.contains("ans") &&
@@ -47,8 +91,7 @@ const Home = () => {
 		}
 		if (quizShow) {
 			setQuizCounter(quizCounter + 1);
-        }
-        console.log(data);
+		}
 	};
 	const selectCity = e => {
 		e.preventDefault();
@@ -73,14 +116,20 @@ const Home = () => {
 		}
 	};
 
-    useEffect(() => {
+	useEffect(() => {
 		const url =
 			"https://5ckmqqogri.execute-api.eu-central-1.amazonaws.com/development/mygetlambda";
 		fetch(url)
 			.then(response => response.json())
-            .then(res => setData(res));
-    }, []);
-    
+			.then(res => setData(res));
+	}, []);
+
+	useEffect(() => {
+		if (quizCounter > 0) {
+			adjustAnswers();
+		}
+	}, [quizCounter]);
+
 	return (
 		<div className="view view-home">
 			<div className={`user-quiz ${!quizShow ? "done" : "in-progress"} `}>
@@ -126,21 +175,27 @@ const Home = () => {
 				>
 					<h3>Top results:</h3>
 					<div className="results-list">
-						<ul onClick={e => selectCity(e)}>
-							<li>
+						<ul ref={resultsList} onClick={e => selectCity(e)}>
+							<li id="Miami">
 								<div>
 									<img src="./MIA.jpg" />
-									<span>Miami</span>
+									<div>
+										<span>Miami</span>
+										<span className="value"></span>
+									</div>
 								</div>
 
 								<NavLink to="/forms?city=Miami" data="Miami">
 									Check prices
 								</NavLink>
 							</li>
-							<li>
+							<li id="Los Angeles">
 								<div>
 									<img src="./LAX.jpg" />
-									<span>Los Angeles</span>
+									<div>
+										<span>Los Angeles</span>
+										<span className="value"></span>
+									</div>
 								</div>
 
 								<NavLink
@@ -150,10 +205,13 @@ const Home = () => {
 									Check prices
 								</NavLink>
 							</li>
-							<li>
+							<li id="New York">
 								<div>
 									<img src="./JFK.jpg" />
-									<span>New York</span>
+									<div>
+										<span>New York</span>
+										<span className="value"></span>
+									</div>
 								</div>
 
 								<NavLink
@@ -163,36 +221,35 @@ const Home = () => {
 									Check prices
 								</NavLink>
 							</li>
-							{!quizShow && (
-								<>
-									<li>
-										<div>
-											<img src="./DEL.jpg" />
-											<span>New Delhi</span>
-										</div>
+							<li id="New Delhi">
+								<div>
+									<img src="./DEL.jpg" />
+									<div>
+										<span>New Delhi</span>
+										<span className="value"></span>
+									</div>
+								</div>
 
-										<NavLink
-											to="/forms?city=New%20Delhi"
-											data="New Delhi"
-										>
-											Check prices
-										</NavLink>
-									</li>
-									<li>
-										<div>
-											<img src="./NRT.jpg" />
-											<span>Tokyo</span>
-										</div>
+								<NavLink
+									to="/forms?city=New%20Delhi"
+									data="New Delhi"
+								>
+									Check prices
+								</NavLink>
+							</li>
+							<li id="Tokyo">
+								<div>
+									<img src="./NRT.jpg" />
+									<div>
+										<span>Tokyo</span>
+										<span className="value"></span>
+									</div>
+								</div>
 
-										<NavLink
-											to="/forms?city=Tokyo"
-											data="Tokyo"
-										>
-											Check prices
-										</NavLink>
-									</li>{" "}
-								</>
-							)}
+								<NavLink to="/forms?city=Tokyo" data="Tokyo">
+									Check prices
+								</NavLink>
+							</li>
 						</ul>
 					</div>
 				</div>

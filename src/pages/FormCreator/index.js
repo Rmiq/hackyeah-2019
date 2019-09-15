@@ -7,6 +7,8 @@ import './material.scss';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 
 
+import { withRouter } from 'react-router-dom'
+
 function getParameterByName(name, url) {
 	if (!url) url = window.location.href;
 	name = name.replace(/[\[\]]/g, '\\$&');
@@ -16,7 +18,7 @@ function getParameterByName(name, url) {
 	if (!results[2]) return '';
 	return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
-export function FormCreator() {
+export const FormCreator = withRouter(({ history }) => {
 	const [startDatePick, setStartDate] = React.useState(null);
 	const [endDatePick, setEndDate] = React.useState(null);
 	const [focusedInput, setFocusedInput] = React.useState(null);
@@ -31,6 +33,8 @@ export function FormCreator() {
 	const [param, setParam] = React.useState('Berlin');
 	const [screenWidth, setScreenWidth] = React.useState(window.screen.width);
 	React.useEffect(() => {
+
+
 		setFocusedInput('startDate');
 
 		getParameterByName('city') && setParam(getParameterByName('city'))
@@ -42,7 +46,10 @@ export function FormCreator() {
 		});
 	}, []);
 	React.useEffect(() => {
+		let singlePicker = document.querySelectorAll('.SingleDatePicker');
 		let dayClick = document.querySelectorAll('.CalendarDay');
+		console.log(singlePicker);
+
 
 		dayClick && dayClick.forEach(e => {
 
@@ -57,13 +64,18 @@ export function FormCreator() {
 						setEndPrice(e.querySelector('.price').innerText.slice(0, -2));
 
 					}
+
 				}, 10)
 
 
 
 			})
 
+
+
 		})
+
+
 	}, [focusedInput])
 	React.useEffect(() => {
 
@@ -74,8 +86,8 @@ export function FormCreator() {
 		}
 	}, [startPrice, endPrice])
 	React.useEffect(() => {
-		let test = document.querySelectorAll('.CalendarDay:not(.CalendarDay__blocked_out_of_range) ');
-
+		let test = document.querySelectorAll('.CalendarDay:not(.CalendarDay__blocked_out_of_range)');
+		console.log(test);
 		test.forEach(e => {
 			if (!e.children[0]) {
 				var price = document.createElement("p");
@@ -88,7 +100,7 @@ export function FormCreator() {
 				price.appendChild(textnode);                              // Append the text to <li>
 
 
-				if (price.innerHTML < 200) {
+				if (price.innerHTML <= 200) {
 					price.appendChild(currency);
 					currency.setAttribute('style', 'color:#00bd68');
 					price.setAttribute('style', 'color:#00bd68');
@@ -98,7 +110,7 @@ export function FormCreator() {
 					currency.setAttribute('style', 'color:#f0b000');
 					price.setAttribute('style', 'color:#f0b000');
 				}
-				if (price.innerHTML > 500) {
+				if (price.innerHTML >= 500) {
 					price.appendChild(currency);
 					currency.setAttribute('style', 'color:#ff5452');
 					price.setAttribute('style', 'color:#ff5452');
@@ -115,6 +127,15 @@ export function FormCreator() {
 		buttonNext && buttonNext.addEventListener('click', () => {
 			setNext(!nextClicked);
 		})
+		let buttonPrevVertical = document.querySelector('.DayPickerNavigation_prevButton__verticalDefault ');
+		buttonPrevVertical && buttonPrevVertical.addEventListener('click', () => {
+			setPrev(!prevClicked);
+		})
+		let buttonNextVertical = document.querySelector('.DayPickerNavigation_nextButton__verticalDefault ');
+		buttonNextVertical && buttonNextVertical.addEventListener('click', () => {
+			setNext(!nextClicked);
+		})
+
 
 
 
@@ -138,7 +159,19 @@ export function FormCreator() {
 
 
 	}
-
+	const handleClick = () => {
+		totalPrice && history.push('/choose-a-seat');
+	}
+	const handleCheck = () => {
+		setCheck(!isChecked)
+		setStartDate(null);
+		setEndDate(null);
+		setSingleDate(null);
+		setStartPrice(0);
+		setEndPrice(0);
+		setTotalPrice(0);
+		setFocusedInput('startDate');
+	}
 	return (
 		<div className="view view-pickerWrapper">
 			<h2>Flight scheduler for <span className="city">{param}</span></h2>
@@ -147,7 +180,7 @@ export function FormCreator() {
 
 				<div className="checkbox" >
 					<label className="label-wrapper">
-						<input type="checkbox" checked={isChecked} onClick={() => { setCheck(!isChecked) }} /><span className="checkbox-material" ><span className="check"></span></span> One-way
+						<input type="checkbox" checked={isChecked} onClick={handleCheck} /><span className="checkbox-material" ><span className="check"></span></span> One-way
 </label>
 				</div>
 
@@ -159,7 +192,30 @@ export function FormCreator() {
 							date={singleDate}
 							focused={focusedSingleInput}
 							onDateChange={handleSingleDateChange}
-							onFocusChange={() => { setFocusedSingleInput(true) }}
+							onFocusChange={() => {
+								setFocusedSingleInput(true);
+								let singlePicker = document.querySelector('.SingleDatePicker');
+								let singleClicked = singlePicker.querySelectorAll('.CalendarDay')
+								singleClicked && singleClicked.forEach(e => {
+
+									e.addEventListener('click', (z) => {
+										setTimeout(() => {
+											if (e.classList.contains('CalendarDay__selected')) {
+												setTotalPrice(e.querySelector('.price').innerText.slice(0, -2))
+
+											}
+
+										}, 10)
+
+
+
+									})
+
+
+
+								})
+								console.log(singlePicker);
+							}}
 							hideKeyboardShortcutsPanel={true}
 							orientation={screenWidth > 1024 ? 'horizontal' : 'vertical'}
 
@@ -188,12 +244,12 @@ export function FormCreator() {
 					<p>Total price: <span>{totalPrice} zł</span></p>
 
 				</div>
-				<button disabled={totalPrice ? false : true} className="rkmd-btn btn-lg btn-lightBlue ripple-effect book-button">Book flight</button>
+				<button disabled={totalPrice ? false : true} onClick={handleClick} className="rkmd-btn btn-lg btn-lightBlue ripple-effect book-button">Book flight</button>
 			</div>
 
 
 
 		</div >
 	);
-};
+});
 

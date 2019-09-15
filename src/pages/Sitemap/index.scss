@@ -1,0 +1,13 @@
+.view-sitemap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2{
+        color: #083377;
+        font-size: 40px;
+    }
+    li{
+        margin: 1rem 0;
+    }
+}

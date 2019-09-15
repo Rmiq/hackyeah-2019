@@ -8,6 +8,7 @@ import { FormCreator } from "./pages/FormCreator";
 import DataTransfer from "./pages/DataTransfer";
 import bookPlaceAndLuggage from "./pages/placeAndLuggageBooker/bookPlaceAndLuggage";
 import History from "./pages/History";
+import Sitemap from "./pages/Sitemap";
 import ThankYouPage from "./pages/ThankYouPage";
 
 const App = () => {
@@ -24,7 +25,7 @@ const App = () => {
 					<a className="menu-button" onClick={e => toggleActive()}  >
 						<i className="fa fa-bars"></i>
 					</a>
-					<NavLink exact to="/"  onClick ={e=>setActive(false)}>
+					<NavLink exact to="/" onClick={e => setActive(false)}>
 						<img src="./logo_lot_en.svg" />
 					</NavLink>
 					<div id='app-navigation' className={`app-navigation ${active ? 'activeNav' : ''}`}>
@@ -46,7 +47,12 @@ const App = () => {
 							</li> */}
 							<li>
 								<NavLink exact to="/history">
-									Prepare for travel
+									Data
+								</NavLink>
+							</li>
+							<li>
+								<NavLink exact to="/sitemap">
+									Sitemap
 								</NavLink>
 							</li>
 							{/* <li>
@@ -71,7 +77,7 @@ const App = () => {
 					<Route path="/book-a-flight" exact component={FormCreator} />
 					<Route path="/choose-a-seat" exact component={bookPlaceAndLuggage} />
 					<Route path="/history" exact component={History} />
-					<Route path="/thank-you-page" exact component={ThankYouPage}/>
+					<Route path="/sitemap" exact component={Sitemap} />
 				</section>
 			</Router>
 		</div>

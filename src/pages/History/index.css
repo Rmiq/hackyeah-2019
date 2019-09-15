@@ -20,12 +20,6 @@
   text-align: left;
   padding: 8px;
 }
-.view-history .history-list tr:first-of-type {
-  background: #083377;
-}
-.view-history .history-list tr:first-of-type th {
-  color: white;
-}
 .view-history .history-list tr:nth-child(even) {
   background-color: #dddddd;
 }
@@ -33,6 +27,12 @@
   margin-right: 0.5rem;
   border: 1px solid #dddddd;
   padding: 8px;
+}
+.view-history .history-list thead tr:first-of-type {
+  background: #083377;
+}
+.view-history .history-list thead tr:first-of-type th {
+  color: white;
 }
 
 /*# sourceMappingURL=index.css.map */

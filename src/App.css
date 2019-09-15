@@ -10,6 +10,7 @@
   justify-content: space-between;
   padding: 0.5rem 2rem;
   height: 80px;
+  z-index: 999;
 }
 .app .app-header .menu-button {
   display: flex;
@@ -31,33 +32,73 @@
 }
 .app .app-header a {
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-.app .app-header .app-navigation {
-  display: none;
+  justify-content: flex-start;
 }
 @media only screen and (min-width: 1024px) {
-  .app .app-header .app-navigation {
+  .app .app-header a {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 }
+.app .app-header .app-navigation {
+  display: none;
+  position: absolute;
+  left: 0;
+  margin-top: 70px;
+  width: 100%;
+  background-color: white;
+}
+@media only screen and (min-width: 1024px) {
+  .app .app-header .app-navigation {
+    display: flex;
+    position: static;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+  }
+}
 .app .app-header .app-navigation ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+@media only screen and (min-width: 1024px) {
+  .app .app-header .app-navigation ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+  }
+}
+.app .app-header .app-navigation ul li:last-child a {
+  padding-bottom: 1.1rem;
+}
+@media only screen and (min-width: 1024px) {
+  .app .app-header .app-navigation ul li:last-child a {
+    padding-bottom: 0.55rem;
+  }
 }
 .app .app-header .app-navigation ul li a {
-  padding: 0.5rem 1.5rem;
+  padding: 0.55rem 1.4rem;
   color: #083377;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
+}
+@media only screen and (min-width: 1024px) {
+  .app .app-header .app-navigation ul li a {
+    padding: 0.5rem 1.5rem;
+    font-size: 1.2rem;
+  }
 }
 .app .app-header .app-navigation ul li a.active {
   color: #012155;
-  font-size: 17px;
+  font-size: 1.2rem;
+  text-align: left;
+}
+@media only screen and (min-width: 1024px) {
+  .app .app-header .app-navigation ul li a.active {
+    font-size: 20px;
+  }
 }
 .app .app-header .user-section {
   display: flex;
@@ -88,6 +129,9 @@
   max-width: 100%;
   z-index: -1;
   opacity: 0.5;
+}
+.app .activeNav {
+  display: block !important;
 }
 
 /*# sourceMappingURL=App.css.map */

@@ -1,5 +1,66 @@
+html, body {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
 h1 {
   text-align: center;
+}
+
+.seatViewContainer {
+  animation: fadeIn ease 3s;
+  -webkit-animation: fadeIn ease 3s;
+  -moz-animation: fadeIn ease 3s;
+  -o-animation: fadeIn ease 3s;
+  -ms-animation: fadeIn ease 3s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.travelerDiv {
+  font-weight: bold;
+  color: #005C99;
+  text-decoration: underline;
 }
 
 .container {
@@ -11,6 +72,21 @@ h1 {
   }
 }
 
+@media only screen and (min-width: 1024px) {
+  .main-container {
+    background: url("./Plane-512.png") no-repeat center;
+    background-size: 60%;
+    background-position-y: -10%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .main-container {
+    background: url("./Plane-512.png") no-repeat center;
+    background-size: 60%;
+    background-position-y: -10%;
+  }
+}
+
 .grid {
   text-align: center;
   position: relative;
@@ -18,6 +94,8 @@ h1 {
 @media only screen and (min-width: 1024px) {
   .grid {
     margin: 0 auto;
+    margin-top: 150px;
+    width: 45%;
   }
 }
 
@@ -38,13 +116,15 @@ h1 {
 
 .reserved {
   display: inline-block;
-  background: #083377;
+  background: #38D413;
   color: #fff;
   font-weight: 700;
 }
 
 .available {
-  color: #333;
+  font-weight: bold;
+  color: white;
+  background: #005B98;
 }
 
 li {
@@ -61,8 +141,14 @@ li {
   width: 20%;
 }
 
+.right div {
+  margin: 12px;
+}
+
 .userProfile-form {
-  background: #F3F3F3;
+  border-top: 40px solid;
+  border-top-color: #005C99;
+  background: white;
   position: relative;
   -webkit-box-shadow: 3px 3px 5px 6px #ccc;
   -moz-box-shadow: 3px 3px 5px 6px #ccc;
@@ -81,13 +167,44 @@ li {
 }
 
 .userSpace {
-  padding: 12px;
-  background-color: orange;
+  background: url(persyn.jpg) no-repeat center;
+  background-position: left;
+  padding-left: 28px;
+  background-size: 8%;
+}
+@media only screen and (min-width: 768px) {
+  .userSpace {
+    background-size: 4%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .userSpace {
+    padding: 20px;
+    background-size: 6%;
+  }
+}
+
+.planeId {
+  background: url(plane-icon.jpg) no-repeat center;
+  background-position: left;
+  padding-left: 28px;
+  background-size: 8%;
+}
+@media only screen and (min-width: 768px) {
+  .planeId {
+    background-size: 4%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .planeId {
+    padding: 20px;
+    background-size: 6%;
+  }
 }
 
 .bookLuggage-form {
   position: relative;
-  background: #F3F3F3;
+  background: white;
   -webkit-box-shadow: 3px 3px 5px 6px #ccc;
   -moz-box-shadow: 3px 3px 5px 6px #ccc;
   box-shadow: 3px 3px 5px 6px #ccc;
@@ -110,7 +227,56 @@ li {
 }
 
 .seatChoice {
+  animation: fadeIn ease 2s;
+  -webkit-animation: fadeIn ease 2s;
+  -moz-animation: fadeIn ease 2s;
+  -o-animation: fadeIn ease 2s;
+  -ms-animation: fadeIn ease 2s;
+  background: url("icons8-flight-seat-40.png") no-repeat;
+  background-size: 8%;
+  padding-left: 28px;
+  height: 40px;
   font-weight: 700;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .seatChoice:before {
   content: "Seat Number: ";
@@ -162,8 +328,10 @@ li {
 }
 
 .btn-white {
+  margin-top: 40px;
   background-color: #fff;
-  color: #777;
+  color: #083377;
+  font-weight: bold;
 }
 
 .btn::after {

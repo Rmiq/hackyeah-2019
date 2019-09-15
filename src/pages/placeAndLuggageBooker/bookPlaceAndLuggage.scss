@@ -1,206 +1,168 @@
-@import '../../variables.scss';
+@import "./../../variables.scss";
 
-h1 {
-  text-align: center;
-}
+.booking {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	@include respond-to(large) {
+        padding: 3rem;
+        flex-direction: row;
+        justify-content: space-around;
+	}
+	.plane {
+		width: 100%;
+		max-width: 300px;
+		margin: 0 auto;
+		margin-top: 1rem;
+		@include respond-to(large) {
+            width: 300px;
+            margin: 0;
+		}
+		.exit {
+			position: relative;
+			height: 50px;
+			&:before,
+			&:after {
+				content: "EXIT";
+				font-size: 14px;
+				line-height: 18px;
+				padding: 0px 2px;
+				font-family: "Arial Narrow", Arial, sans-serif;
+				display: block;
+				position: absolute;
+				background: green;
+				color: white;
+				top: 50%;
+				transform: translate(0, -50%);
+			}
+			&:before {
+				left: 0;
+			}
+			&:after {
+				right: 0;
+			}
+		}
 
-.container {
-  @include respond-to(large) {
-    width: 50%;
-  }
-  margin: auto;
-}
+		.fuselage {
+			border-right: 5px solid #d8d8d8;
+			border-left: 5px solid #d8d8d8;
+		}
 
-.grid {
-  text-align: center;
-  position:relative;
-  @include respond-to(large) {
-    margin: 0 auto;
-  }
-}
+		ol {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
 
-.grid td {
-  display: inline-block;
-  width: 25%;
-  height: 50px;
-  border: 2px solid #083377;
-  text-align: center;
-  margin: 5px;
-  padding: 10px;
-}
+		.row {
+		}
 
-.grid td:hover {
-  opacity: .7;
-  cursor: pointer;
-}
+		.seats {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: flex-start;
+		}
 
-.reserved {
-  display: inline-block;
-  background: #083377;
-  color: #fff;
-  font-weight: 700;
-}
-
-
-.available {
-  color: #333;
-}
-
-li {
-  list-style: none;
-}
-
-.left {
-  div {
-    display: inline-block;
-    padding: 10px;
-    margin: 5px;
-
-    div {
-      background: #00cd77;
-      width: 20%;
+		.seat {
+			display: flex;
+			flex: 0 0 14.28571428571429%;
+			padding: 5px;
+			position: relative;
+			&:nth-child(3) {
+				margin-right: 14.28571428571429%;
+			}
+			input[type="checkbox"] {
+				position: absolute;
+				opacity: 0;
+				background: white;
+			}
+			input[type="checkbox"]:checked {
+				+ label {
+					background: $primary;
+					color: white;
+					border: none;
+				}
+			}
+			input[type="checkbox"]:disabled {
+				+ label {
+					background: #dddddd;
+					text-indent: -9999px;
+					overflow: hidden;
+					&:after {
+						content: "X";
+						text-indent: 0;
+						position: absolute;
+						top: 4px;
+						left: 50%;
+						transform: translate(-50%, 0%);
+					}
+					&:hover {
+						box-shadow: none;
+						cursor: not-allowed;
+					}
+				}
+			}
+			label {
+				display: block;
+				position: relative;
+				width: 100%;
+				text-align: center;
+				font-size: 14px;
+				font-weight: bold;
+				line-height: 1.5rem;
+				padding: 4px 0;
+				background: white;
+				border-radius: 5px;
+				animation-duration: 300ms;
+				animation-fill-mode: both;
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
     }
-  }
-}
+    .panel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 40%;
+        background: white;
+        border-radius: 1rem;
 
-.right {
+        h3 {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
 
-}
+        .seats {
+            display: flex;
+            flex-wrap: wrap;
+            > div {
+                padding: 1rem 1rem;
+                span, i {
+                    color: $primary;
+                    padding: 0 0.25rem;
+                }
+            }
 
-.userProfile-form {
-  background: #F3F3F3;
-  position: relative;
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  -moz-box-shadow: 3px 3px 5px 6px #ccc;
-  box-shadow: 3px 3px 5px 6px #ccc;
-  width: 80%;
-  margin: 0 auto;
-  padding: 10px;
-  @include respond-to(large) {
-    position: absolute;
-    width: 20%;
-    margin-left: 20px;
-    padding: 12px;
-  }
+        }
 
-}
-
-.userSpace {
-  padding: 12px;
-  background-color: orange;
-}
-
-.bookLuggage-form {
-  position: relative;
-  background: #F3F3F3;
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  -moz-box-shadow: 3px 3px 5px 6px #ccc;
-  box-shadow: 3px 3px 5px 6px #ccc;
-  width: 80%;
-  margin: 0 auto;
-  padding: 12px;
-  margin-top: 20px;
-
-  @include respond-to(large) {
-    width: 20%;
-    padding: 12px;
-    width: 20%;
-    left:35%;
-  }
-}
-
-
-.reservationHeader {
-  color: #083377
-}
-
-.seatChoice {
-  font-weight: 700;
-  &:before {
-    content: "Seat Number: ";
-  }
-}
-
-
-.text-box {
-    margin-top: 10px;
-    position: relative;
-    left: 25%;
-  @include respond-to(small) {
-    margin-top: 20px;
-    left: 20%;
-  }
-  @include respond-to(medium) {
-    margin-top: 20px;
-    left: 38%;
-  }
-  @include respond-to(large) {
-    margin-top: 20px;
-    left: 40%;
-  }
-}
-
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 15px 40px;
-  display: inline-block;
-  border-radius: 100px;
-  transition: all .2s;
-  position: absolute;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn-white {
-  background-color: #fff;
-  color: #777;
-}
-
-.btn::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 100px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all .4s;
-}
-
-.btn-white::after {
-  background-color: #ffffff;
-}
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
-
-.btn-animated {
-  animation: moveInBottom 5s ease-out;
-  animation-fill-mode: backwards;
-}
-
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
+        button {
+            padding: 1rem 2rem;
+            background: $primary;
+            border-radius: 1rem;
+            color: white;
+            font-size: 1rem;
+            margin-top: 1rem;
+            font-weight: bold;
+            
+            @include respond-to(large) {
+                margin-bottom: 1rem;
+            }
+        }
+    }
 }

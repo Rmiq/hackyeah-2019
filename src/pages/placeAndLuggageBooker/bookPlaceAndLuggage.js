@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 const seats = [];
 
 const BookPlaceAndLuggage = () => {
@@ -323,7 +323,8 @@ const BookPlaceAndLuggage = () => {
 							})}
 					</div>
 				</div>
-				{currentSeats.length > 0 && <button>Finish reservation</button>}
+				{currentSeats.length > 0 && <button>
+					<NavLink exact to="/thank-you-page">Finish reservation</NavLink></button>}
 			</div>
 		</div>
 	);

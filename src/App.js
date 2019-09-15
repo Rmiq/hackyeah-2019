@@ -9,6 +9,7 @@ import DataTransfer from "./pages/DataTransfer";
 import bookPlaceAndLuggage from "./pages/placeAndLuggageBooker/bookPlaceAndLuggage";
 import History from "./pages/History";
 import Sitemap from "./pages/Sitemap";
+import ThankYouPage from "./pages/ThankYouPage";
 
 const App = () => {
 	const [active, setActive] = useState(false);

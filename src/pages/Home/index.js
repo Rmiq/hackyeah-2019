@@ -45,7 +45,7 @@ const Home = () => {
 		});
 
 		var counts = {};
-		valueMap.forEach(function(x) {
+		valueMap.forEach(function (x) {
 			counts[x] = (counts[x] || 0) + 1;
 		});
 
@@ -221,38 +221,6 @@ const Home = () => {
 									Check prices
 								</NavLink>
 							</li>
-<<<<<<< HEAD
-							{!quizShow && (
-								<>
-									<li>
-										<div>
-											<img src="./DEL.jpg" />
-											<span>New Delhi</span>
-										</div>
-
-										<NavLink
-											to="/book-a-flight?city=New%20Delhi"
-											data="New Delhi"
-										>
-											Check prices
-										</NavLink>
-									</li>
-									<li>
-										<div>
-											<img src="./NRT.jpg" />
-											<span>Tokyo</span>
-										</div>
-
-										<NavLink
-											to="/book-a-flight?city=Tokyo"
-											data="Tokyo"
-										>
-											Check prices
-										</NavLink>
-									</li>{" "}
-								</>
-							)}
-=======
 							<li id="New Delhi">
 								<div>
 									<img src="./DEL.jpg" />
@@ -282,7 +250,6 @@ const Home = () => {
 									Check prices
 								</NavLink>
 							</li>
->>>>>>> a8c4d630e798d81052d4af2c3feecc7f3b64ab69
 						</ul>
 					</div>
 				</div>

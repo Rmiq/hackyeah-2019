@@ -7,6 +7,8 @@ import './material.scss';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 
 
+import { withRouter } from 'react-router-dom'
+
 function getParameterByName(name, url) {
 	if (!url) url = window.location.href;
 	name = name.replace(/[\[\]]/g, '\\$&');
@@ -16,7 +18,7 @@ function getParameterByName(name, url) {
 	if (!results[2]) return '';
 	return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
-export function FormCreator() {
+export const FormCreator = withRouter(({ history }) => {
 	const [startDatePick, setStartDate] = React.useState(null);
 	const [endDatePick, setEndDate] = React.useState(null);
 	const [focusedInput, setFocusedInput] = React.useState(null);
@@ -157,6 +159,9 @@ export function FormCreator() {
 
 
 	}
+	const handleClick = () => {
+		totalPrice && history.push('/choose-a-seat');
+	}
 	const handleCheck = () => {
 		setCheck(!isChecked)
 		setStartDate(null);
@@ -239,12 +244,12 @@ export function FormCreator() {
 					<p>Total price: <span>{totalPrice} zł</span></p>
 
 				</div>
-				<button disabled={totalPrice ? false : true} className="rkmd-btn btn-lg btn-lightBlue ripple-effect book-button">Book flight</button>
+				<button disabled={totalPrice ? false : true} onClick={handleClick} className="rkmd-btn btn-lg btn-lightBlue ripple-effect book-button">Book flight</button>
 			</div>
 
 
 
 		</div >
 	);
-};
+});
 

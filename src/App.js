@@ -23,7 +23,7 @@ const App = () => {
 					<a className="menu-button" onClick={e => toggleActive()}  >
 						<i className="fa fa-bars"></i>
 					</a>
-					<NavLink exact to="/">
+					<NavLink exact to="/"  onClick ={e=>setActive(false)}>
 						<img src="./logo_lot_en.svg" />
 					</NavLink>
 					<div id='app-navigation' className={`app-navigation ${active ? 'activeNav' : ''}`}>

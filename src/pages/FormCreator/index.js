@@ -32,6 +32,7 @@ export const FormCreator = withRouter(({ history }) => {
 	const [totalPrice, setTotalPrice] = React.useState(0);
 	const [param, setParam] = React.useState('Berlin');
 	const [screenWidth, setScreenWidth] = React.useState(window.screen.width);
+
 	React.useEffect(() => {
 
 
@@ -40,7 +41,7 @@ export const FormCreator = withRouter(({ history }) => {
 		getParameterByName('city') && setParam(getParameterByName('city'))
 
 		window.addEventListener("resize", () => {
-			setScreenWidth(window.screen.width)
+			setScreenWidth(window.screen.width);
 
 
 		});
@@ -244,7 +245,7 @@ export const FormCreator = withRouter(({ history }) => {
 				</div>
 
 			</div>
-			<div className="bottom-wrapper">
+			<div className="bottom-wrapper" >
 				<div className="total-wrapper">
 					<p>Total price: <span>{totalPrice} zł</span></p>
 

@@ -231,7 +231,7 @@ const Home = () => {
 								</div>
 
 								<NavLink
-									to="/forms?city=New%20Delhi"
+									to="/book-a-flight?city=New%20Delhi"
 									data="New Delhi"
 								>
 									Check prices
@@ -246,7 +246,7 @@ const Home = () => {
 									</div>
 								</div>
 
-								<NavLink to="/forms?city=Tokyo" data="Tokyo">
+								<NavLink to="/book-a-flight?city=Tokyo" data="Tokyo">
 									Check prices
 								</NavLink>
 							</li>

@@ -130,6 +130,7 @@
 						height: 80px;
 						padding-bottom: 0;
                     }
+                    
                     span {
 
                     }
@@ -185,9 +186,19 @@
 						&:hover {
 							cursor: pointer;
 						}
-					}
+                    }
+                    
+                    &:nth-child(n+4) {
+                        display: none;
+                    }
 				}
-			}
+            }
+            
+            &.done {
+                li:nth-child(n+4) {
+                    display: flex;
+                }
+            }
 		}
 	}
 

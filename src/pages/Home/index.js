@@ -174,7 +174,7 @@ const Home = () => {
 						}`}
 				>
 					<h3>Top results:</h3>
-					<div className="results-list">
+					<div className={`results-list ${!quizShow ? "done" : "in-progress"}`}>
 						<ul ref={resultsList} onClick={e => selectCity(e)}>
 							<li id="Miami">
 								<div>

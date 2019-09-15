@@ -77,12 +77,11 @@
 }
 .view-home .user-quiz ul li a {
   display: block;
-  padding: 0.5rem 0.7rem;
+  padding: 1rem 0.7rem;
   background: #083377;
   color: white;
   margin-top: 1rem;
   text-align: center;
-  height: 100%;
 }
 @media only screen and (min-width: 1024px) {
   .view-home .user-quiz ul li a {
@@ -133,8 +132,10 @@
 }
 @media only screen and (min-width: 1024px) {
   .view-home .results .results-list ul li {
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     height: 80px;
+    padding-bottom: 0;
   }
 }
 .view-home .results .results-list ul li div {
@@ -143,10 +144,22 @@
   align-items: flex-start;
   flex-direction: column;
 }
+@media only screen and (min-width: 1024px) {
+  .view-home .results .results-list ul li div {
+    flex-direction: row;
+    align-items: center;
+  }
+}
 .view-home .results .results-list ul li img {
   height: 100%;
   width: 100%;
   padding-bottom: 0.5rem;
+}
+@media only screen and (min-width: 1024px) {
+  .view-home .results .results-list ul li img {
+    width: auto;
+    padding-bottom: 0;
+  }
 }
 .view-home .results .results-list ul li a {
   -webkit-appearance: none;

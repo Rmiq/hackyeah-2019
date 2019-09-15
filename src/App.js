@@ -78,6 +78,7 @@ const App = () => {
 					<Route path="/choose-a-seat" exact component={bookPlaceAndLuggage} />
 					<Route path="/history" exact component={History} />
 					<Route path="/sitemap" exact component={Sitemap} />
+					<Route path="/thank-you-page" exact component={ThankYouPage} />
 				</section>
 			</Router>
 		</div>

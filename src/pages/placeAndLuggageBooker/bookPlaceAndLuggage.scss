@@ -1,12 +1,17 @@
 @import '../../variables.scss';
 
+html,body
+{
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
 h1 {
-
   text-align: center;
 }
 
 .seatViewContainer {
-
   animation: fadeIn ease 3s;
   -webkit-animation: fadeIn ease 3s;
   -moz-animation: fadeIn ease 3s;

@@ -144,6 +144,10 @@ export const FormCreator = withRouter(({ history }) => {
 
 		if (e.startDate) {
 
+			setEndDate(null);
+
+
+
 			setStartDate(e.startDate);
 
 		}
@@ -214,7 +218,7 @@ export const FormCreator = withRouter(({ history }) => {
 
 
 								})
-								console.log(singlePicker);
+								document.activeElement.blur()
 							}}
 							hideKeyboardShortcutsPanel={true}
 							orientation={screenWidth > 1024 ? 'horizontal' : 'vertical'}
@@ -232,6 +236,7 @@ export const FormCreator = withRouter(({ history }) => {
 							onFocusChange={focused => {
 								if (!focused) return;
 								setFocusedInput(focused);
+								document.activeElement.blur()
 							}} // PropTypes.func.isRequired,
 							hideKeyboardShortcutsPanel={true}
 							orientation={screenWidth > 1024 ? 'horizontal' : 'vertical'}

@@ -1,399 +1,168 @@
-@import '../../variables.scss';
+@import "./../../variables.scss";
 
-html,body
-{
-  width: 100%;
-  margin: 0px;
-  padding: 0px;
-  overflow-x: hidden;
-}
-h1 {
-  text-align: center;
-}
+.booking {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	@include respond-to(large) {
+        padding: 3rem;
+        flex-direction: row;
+        justify-content: space-around;
+	}
+	.plane {
+		width: 100%;
+		max-width: 300px;
+		margin: 0 auto;
+		margin-top: 1rem;
+		@include respond-to(large) {
+            width: 300px;
+            margin: 0;
+		}
+		.exit {
+			position: relative;
+			height: 50px;
+			&:before,
+			&:after {
+				content: "EXIT";
+				font-size: 14px;
+				line-height: 18px;
+				padding: 0px 2px;
+				font-family: "Arial Narrow", Arial, sans-serif;
+				display: block;
+				position: absolute;
+				background: green;
+				color: white;
+				top: 50%;
+				transform: translate(0, -50%);
+			}
+			&:before {
+				left: 0;
+			}
+			&:after {
+				right: 0;
+			}
+		}
 
-.seatViewContainer {
-  animation: fadeIn ease 3s;
-  -webkit-animation: fadeIn ease 3s;
-  -moz-animation: fadeIn ease 3s;
-  -o-animation: fadeIn ease 3s;
-  -ms-animation: fadeIn ease 3s;
+		.fuselage {
+			border-right: 5px solid #d8d8d8;
+			border-left: 5px solid #d8d8d8;
+		}
 
+		ol {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
 
-  @keyframes fadeIn{
-    0% {
-      opacity:0;
+		.row {
+		}
+
+		.seats {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: flex-start;
+		}
+
+		.seat {
+			display: flex;
+			flex: 0 0 14.28571428571429%;
+			padding: 5px;
+			position: relative;
+			&:nth-child(3) {
+				margin-right: 14.28571428571429%;
+			}
+			input[type="checkbox"] {
+				position: absolute;
+				opacity: 0;
+				background: white;
+			}
+			input[type="checkbox"]:checked {
+				+ label {
+					background: $primary;
+					color: white;
+					border: none;
+				}
+			}
+			input[type="checkbox"]:disabled {
+				+ label {
+					background: #dddddd;
+					text-indent: -9999px;
+					overflow: hidden;
+					&:after {
+						content: "X";
+						text-indent: 0;
+						position: absolute;
+						top: 4px;
+						left: 50%;
+						transform: translate(-50%, 0%);
+					}
+					&:hover {
+						box-shadow: none;
+						cursor: not-allowed;
+					}
+				}
+			}
+			label {
+				display: block;
+				position: relative;
+				width: 100%;
+				text-align: center;
+				font-size: 14px;
+				font-weight: bold;
+				line-height: 1.5rem;
+				padding: 4px 0;
+				background: white;
+				border-radius: 5px;
+				animation-duration: 300ms;
+				animation-fill-mode: both;
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
     }
-    100% {
-      opacity:1;
+    .panel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 40%;
+        background: white;
+        border-radius: 1rem;
+
+        h3 {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .seats {
+            display: flex;
+            flex-wrap: wrap;
+            > div {
+                padding: 1rem 1rem;
+                span, i {
+                    color: $primary;
+                    padding: 0 0.25rem;
+                }
+            }
+
+        }
+
+        button {
+            padding: 1rem 2rem;
+            background: $primary;
+            border-radius: 1rem;
+            color: white;
+            font-size: 1rem;
+            margin-top: 1rem;
+            font-weight: bold;
+            
+            @include respond-to(large) {
+                margin-bottom: 1rem;
+            }
+        }
     }
-  }
-
-  @-moz-keyframes fadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
-
-  @-webkit-keyframes fadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
-
-  @-o-keyframes fadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
-
-  @-ms-keyframes fadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
-
 }
-
-.travelerDiv {
-  font-weight: bold;
-  color: #005C99;
-  text-decoration: underline  ;
-}
-.container {
-
-
-  @include respond-to(large) {
-    width: 50%;
-  }
-  margin: auto;
-}
-
-.main-container {
-
-  @include respond-to(large) {
-    background: url("./Plane-512.png") no-repeat center;
-    background-size: 60%;
-    background-position-y: -10%;
-  }
-
-  @include respond-to(large) {
-    background: url("./Plane-512.png") no-repeat center;
-    background-size: 60%;
-    background-position-y: -10%;
-  }
-}
-
-.grid {
-  text-align: center;
-  position:relative;
-  @include respond-to(small) {
-    //-webkit-box-shadow: 3px 3px 5px 6px #ccc;
-    //-moz-box-shadow: 3px 3px 5px 6px #ccc;
-    //box-shadow: 3px 3px 5px 6px #ccc;
-    //border-top: 10px solid black;
-    //border-right: 5px solid black;
-    //border-left: 5px solid black;
-  }
-
-  @include respond-to(large) {
-    margin: 0 auto;
-    margin-top: 50px;
-    width: 45%;
-  }
-}
-
-.grid td {
-  display: inline-block;
-  width: 17%;
-  height: 50px;
-  border: 2px solid #083377;
-  text-align: center;
-  margin: 5px;
-  padding: 10px;
-}
-
-.grid td:nth-of-type(2n) {
-   margin-right: 20px;
-  }
-
-  .grid td:nth-of-type(4n) {
-    margin-right: 0;
-   }
- 
-
-.grid td:hover {
-  opacity: .7;
-  cursor: pointer;
-}
-
-.reserved {
-  display: inline-block;
-  background: #38D413;
-  color: #fff;
-  font-weight: 700;
-}
-
-
-.available {
-  font-weight: bold;
-  color: white;
-  background: #005B98;
-}
-
-li {
-  list-style: none;
-}
-
-.left {
-  div {
-    display: inline-block;
-    padding: 10px;
-    margin: 5px;
-
-    div {
-      background: #00cd77;
-      width: 20%;
-    }
-  }
-}
-
-.right {
-  div {
-    margin: 12px;
-  }
-}
-
-.userProfile-form {
-  border-top: 40px solid;
-  border-top-color: #005C99;
-  background: white;
-  position: relative;
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  -moz-box-shadow: 3px 3px 5px 6px #ccc;
-  box-shadow: 3px 3px 5px 6px #ccc;
-  width: 80%;
-  margin: 0 auto;
-  padding: 10px;
-  @include respond-to(large) {
-    position: absolute;
-    width: 20%;
-    margin-left: 20px;
-    padding: 12px;
-  }
-
-}
-
-.userSpace {
-  background: url(persyn.jpg) no-repeat center;
-  background-position: left;
-  padding-left: 28px;
-  background-size: 8%;
-  @include respond-to(medium) {
-    background-size: 4%;
-  }
-  @include respond-to(large) {
-    padding: 20px;
-    background-size: 6%;
-  }
-}
-
-.planeId {
-  background: url(plane-icon.jpg) no-repeat center;
-  background-position: left;
-  padding-left: 28px;
-  background-size: 8%;
-  @include respond-to(medium) {
-    background-size: 4%;
-  }
-  @include respond-to(large) {
-    padding: 20px;
-    background-size: 6%;
-  }
-}
-
-.bookLuggage-form {
-  position: relative;
-  background: white ;
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  -moz-box-shadow: 3px 3px 5px 6px #ccc;
-  box-shadow: 3px 3px 5px 6px #ccc;
-  width: 80%;
-  margin: 0 auto;
-  padding: 12px;
-  margin-top: 20px;
-
-  @include respond-to(large) {
-    width: 20%;
-    padding: 12px;
-    width: 20%;
-    left:35%;
-  }
-}
-
-
-.reservationHeader {
-  color: #083377
-}
-
-.seatChoice {
-
-    animation: fadeIn ease 2s;
-    -webkit-animation: fadeIn ease 2s;
-    -moz-animation: fadeIn ease 2s;
-    -o-animation: fadeIn ease 2s;
-    -ms-animation: fadeIn ease 2s;
-
-
-  @keyframes fadeIn{
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
-
-  @-moz-keyframes fadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
-
-  @-webkit-keyframes fadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
-
-  @-o-keyframes fadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
-
-  @-ms-keyframes fadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
-  background: url("icons8-flight-seat-40.png") no-repeat;
-  background-size: 8%;
-  padding-left: 28px;
-  height: 40px;
-  font-weight: 700;
-  &:before {
-    content: "Seat Number: ";
-  }
-}
-
-
-.text-box {
-    margin-top: 10px;
-    position: relative;
-    left: 25%;
-  @include respond-to(small) {
-    margin-top: 20px;
-    left: 20%;
-  }
-  @include respond-to(medium) {
-    margin-top: 20px;
-    left: 38%;
-  }
-  @include respond-to(large) {
-    margin-top: 20px;
-    left: 40%;
-  }
-}
-
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 15px 40px;
-  display: inline-block;
-  border-radius: 100px;
-  transition: all .2s;
-  position: absolute;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn-white {
-  margin-top: 40px;
-  background-color: #fff;
-  color: $primary;
-  font-weight: bold;
-}
-
-.btn::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 100px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all .4s;
-}
-
-.btn-white::after {
-  background-color: #ffffff;
-}
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
-
-.btn-animated {
-  animation: moveInBottom 5s ease-out;
-  animation-fill-mode: backwards;
-}
-
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
-
-

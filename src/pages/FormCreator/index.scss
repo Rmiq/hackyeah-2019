@@ -24,7 +24,16 @@ h2{
 .CalendarDay{
         border: none;
         padding: 5px;
+        &__hovered_span{
+            color:#FFF;
+            background:#2196F3;
+        }
 }
+.CalendarDay__hovered_span, .CalendarDay__hovered_span:hover{
+    color:#FFF;
+    background:#2196F3;
+}
+
 .CalendarDay__selected, .CalendarDay__selected:active, .CalendarDay__selected:hover{
     background: #094185;
     border: none;
@@ -133,18 +142,19 @@ h2{
 
     
     
-    @include respond-to(medium){
-     
-        top: 67%;
-      
-    }
     @include respond-to(large){
         width: 618px;
         margin-left: 1rem;
-        
+        top: 72%;
         justify-content: space-between;
         flex-direction: row;
         align-items: center;
+      
+    }
+    @include respond-to(extra-large){
+       
+        top: 67%;
+        
     }
 }
 .CalendarMonthGrid{

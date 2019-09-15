@@ -1,41 +1,41 @@
 @import "./../../variables.scss";
 
 .view-history {
-    max-width: 80%;
-    margin: 0 auto;
+	max-width: 80%;
+	margin: 0 auto;
 
-    h2 {
-        color: $primary;
-    }
-	.history-list {   
-        padding-bottom: 4rem;
-        margin-top: 1rem;
-        overflow: scroll;
-        table{
-            border-collapse: collapse;
-            width: 100%;
-        }
-        tr {
-            margin: 0.25rem 0;
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-            &:first-of-type {
-                background: $primary;
-                th {
-                    color: white;
-                }
-                
-            }
-            &:nth-child(even){
-                background-color: #dddddd;
-            }
-        }
+	h2 {
+		color: $primary;
+	}
+	.history-list {
+		padding-bottom: 4rem;
+		margin-top: 1rem;
+		overflow: scroll;
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		tr {
+			margin: 0.25rem 0;
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding: 8px;
+
+			&:nth-child(even) {
+				background-color: #dddddd;
+			}
+		}
 		th {
-            margin-right: 0.5rem;
-            border: 1px solid #dddddd;
-            padding: 8px;
-        }
-        
+			margin-right: 0.5rem;
+			border: 1px solid #dddddd;
+			padding: 8px;
+		}
+
+		thead tr:first-of-type {
+			background: $primary;
+			th {
+				color: white;
+			}
+		}
 	}
 }

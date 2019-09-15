@@ -8,6 +8,7 @@ import { FormCreator } from "./pages/FormCreator";
 import DataTransfer from "./pages/DataTransfer";
 import bookPlaceAndLuggage from "./pages/placeAndLuggageBooker/bookPlaceAndLuggage";
 import History from "./pages/History";
+import ThankYouPage from "./pages/ThankYouPage";
 
 const App = () => {
 	const [active, setActive] = useState(false);
@@ -70,6 +71,7 @@ const App = () => {
 					<Route path="/book-a-flight" exact component={FormCreator} />
 					<Route path="/choose-a-seat" exact component={bookPlaceAndLuggage} />
 					<Route path="/history" exact component={History} />
+					<Route path="/thank-you-page" exact component={ThankYouPage}/>
 				</section>
 			</Router>
 		</div>

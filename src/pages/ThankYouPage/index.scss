@@ -1,0 +1,31 @@
+@import "./../../variables.scss";
+.background-thanks-class{
+    
+    .thank-you-text{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color:#083377;
+        font-weight: bold;
+        z-index: 10;
+        text-align: center;
+        height: 30vh;
+        font-size: 50px;
+        font-family: Apercu-Bold, Calibri, sans-serif;
+        margin-top: 20px;
+        @include respond-to(large){
+            display: flex;
+            font-size: 70px;
+        }
+    }
+    i{
+        position: absolute;
+        color: #083377;
+        bottom:40%;
+        right:50%;
+        transform: translate(50%,50%);
+        @include respond-to(large){
+            bottom: 50%;
+        }
+    }
+}

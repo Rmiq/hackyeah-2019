@@ -3,12 +3,36 @@
   align-items: center;
   flex-direction: column;
 }
+.view h2 {
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+@media only screen and (min-width: 1024px) {
+  .view h2 {
+    margin: 40px 10px 20px 10px;
+  }
+}
 .view .form-wrapper {
   display: flex;
   align-items: center;
+  flex-direction: column;
+}
+@media only screen and (min-width: 1024px) {
+  .view .form-wrapper {
+    flex-direction: row;
+  }
 }
 .view .CalendarDay {
   border: none;
+  padding: 5px;
+}
+.view .CalendarDay__hovered_span {
+  color: #FFF;
+  background: #2196F3;
+}
+.view .CalendarDay__hovered_span, .view .CalendarDay__hovered_span:hover {
+  color: #FFF;
+  background: #2196F3;
 }
 .view .CalendarDay__selected, .view .CalendarDay__selected:active, .view .CalendarDay__selected:hover {
   background: #094185;
@@ -46,31 +70,45 @@
   border-left: 0;
 }
 .view .DayPicker_transitionContainer {
-  width: 100%;
-  height: 319px !important;
+  max-width: 100%;
+  height: 410px !important;
 }
 @media only screen and (min-width: 1024px) {
   .view .DayPicker_transitionContainer {
     width: 618px;
+    height: 355px !important;
   }
 }
 .view .DateInput_fang.DateInput_fang_1 {
   display: none;
 }
 .view .DateRangePicker_picker {
-  left: -25% !important;
+  left: -3% !important;
 }
 @media only screen and (min-width: 1024px) {
   .view .DateRangePicker_picker {
     left: -75% !important;
   }
 }
+.view .SingleDatePicker_picker {
+  left: -70% !important;
+}
+@media only screen and (min-width: 1024px) {
+  .view .SingleDatePicker_picker {
+    left: -220% !important;
+  }
+}
 .view .price {
   font-size: 10px;
 }
 .view .book-button {
-  margin-left: 1rem;
+  margin-left: 0;
   background: #094185 !important;
+}
+@media only screen and (min-width: 1024px) {
+  .view .book-button {
+    margin-left: 1rem;
+  }
 }
 .view .CalendarDay__blocked_out_of_range {
   width: auto !important;
@@ -92,17 +130,28 @@
   border-bottom: 3px solid #000;
 }
 .view .bottom-wrapper {
-  z-index: 20;
   position: absolute;
-  top: 70%;
+  top: 125%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: auto;
-  margin-left: 1rem;
+  margin-bottom: 40px;
 }
 @media only screen and (min-width: 1024px) {
   .view .bottom-wrapper {
     width: 618px;
+    margin-left: 1rem;
+    top: 72%;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .view .bottom-wrapper {
+    top: 78%;
   }
 }
 .view .CalendarMonthGrid {

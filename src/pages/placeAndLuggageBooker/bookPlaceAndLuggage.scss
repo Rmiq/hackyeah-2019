@@ -1,21 +1,111 @@
 @import '../../variables.scss';
 
 h1 {
+
   text-align: center;
 }
 
+.seatViewContainer {
+
+  animation: fadeIn ease 3s;
+  -webkit-animation: fadeIn ease 3s;
+  -moz-animation: fadeIn ease 3s;
+  -o-animation: fadeIn ease 3s;
+  -ms-animation: fadeIn ease 3s;
+
+
+  @keyframes fadeIn{
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+
+  @-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+
+}
+
+.travelerDiv {
+  font-weight: bold;
+  color: #005C99;
+  text-decoration: underline  ;
+}
 .container {
+
+
   @include respond-to(large) {
     width: 50%;
   }
   margin: auto;
 }
 
+.main-container {
+
+  @include respond-to(large) {
+    background: url("./Plane-512.png") no-repeat center;
+    background-size: 60%;
+    background-position-y: -10%;
+  }
+
+  @include respond-to(large) {
+    background: url("./Plane-512.png") no-repeat center;
+    background-size: 60%;
+    background-position-y: -10%;
+  }
+}
+
 .grid {
   text-align: center;
   position:relative;
+  @include respond-to(small) {
+    //-webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    //-moz-box-shadow: 3px 3px 5px 6px #ccc;
+    //box-shadow: 3px 3px 5px 6px #ccc;
+    //border-top: 10px solid black;
+    //border-right: 5px solid black;
+    //border-left: 5px solid black;
+  }
+
   @include respond-to(large) {
     margin: 0 auto;
+    margin-top: 150px;
+    width: 45%;
   }
 }
 
@@ -36,14 +126,16 @@ h1 {
 
 .reserved {
   display: inline-block;
-  background: #083377;
+  background: #38D413;
   color: #fff;
   font-weight: 700;
 }
 
 
 .available {
-  color: #333;
+  font-weight: bold;
+  color: white;
+  background: #005B98;
 }
 
 li {
@@ -64,11 +156,15 @@ li {
 }
 
 .right {
-
+  div {
+    margin: 12px;
+  }
 }
 
 .userProfile-form {
-  background: #F3F3F3;
+  border-top: 40px solid;
+  border-top-color: #005C99;
+  background: white;
   position: relative;
   -webkit-box-shadow: 3px 3px 5px 6px #ccc;
   -moz-box-shadow: 3px 3px 5px 6px #ccc;
@@ -86,13 +182,36 @@ li {
 }
 
 .userSpace {
-  padding: 12px;
-  background-color: orange;
+  background: url(persyn.jpg) no-repeat center;
+  background-position: left;
+  padding-left: 28px;
+  background-size: 8%;
+  @include respond-to(medium) {
+    background-size: 4%;
+  }
+  @include respond-to(large) {
+    padding: 20px;
+    background-size: 6%;
+  }
+}
+
+.planeId {
+  background: url(plane-icon.jpg) no-repeat center;
+  background-position: left;
+  padding-left: 28px;
+  background-size: 8%;
+  @include respond-to(medium) {
+    background-size: 4%;
+  }
+  @include respond-to(large) {
+    padding: 20px;
+    background-size: 6%;
+  }
 }
 
 .bookLuggage-form {
   position: relative;
-  background: #F3F3F3;
+  background: white ;
   -webkit-box-shadow: 3px 3px 5px 6px #ccc;
   -moz-box-shadow: 3px 3px 5px 6px #ccc;
   box-shadow: 3px 3px 5px 6px #ccc;
@@ -115,6 +234,62 @@ li {
 }
 
 .seatChoice {
+
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
+
+
+  @keyframes fadeIn{
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+
+  @-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  background: url("icons8-flight-seat-40.png") no-repeat;
+  background-size: 8%;
+  padding-left: 28px;
+  height: 40px;
   font-weight: 700;
   &:before {
     content: "Seat Number: ";
@@ -162,8 +337,10 @@ li {
 }
 
 .btn-white {
+  margin-top: 40px;
   background-color: #fff;
-  color: #777;
+  color: $primary;
+  font-weight: bold;
 }
 
 .btn::after {
@@ -204,3 +381,5 @@ li {
     transform: translateY(0px);
   }
 }
+
+

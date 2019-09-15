@@ -8,26 +8,14 @@ class bookPlaceAndLuggage extends React.Component {
         super();
         this.state = {
             seat: [
-                'A','B','C',
-                '1','2','3',
-                '4','5','6',
-                '7','8','9',
-                '10','11','12',
-                'exit 1','13','exit 2',
-                '14','15','16'
+                '1','   ','2',
+                '3','    ','4',
+                '5','     ','6',
+                '7','      ','8',
+                'exit 1','       ','exit 2',
+                '9','        ','10'
             ],
             seatAvailable: [
-                '1','2','3',
-                '4','5','6',
-                '7','8','9',
-                '10','11','12',
-                '13',
-                '14','15','16',
-                '17','18','19',
-                '20','21','22',
-                '23','24','25',
-                '26','27','28',
-                '29','30','31'
 
             ],
             seatReserved: []
@@ -35,17 +23,18 @@ class bookPlaceAndLuggage extends React.Component {
     }
 
     onClickData(seat) {
-        if(this.state.seatReserved.indexOf(seat) > -1 ) {
-            console.log(seat);
-            this.setState({
-                seatAvailable: this.state.seatAvailable.concat(seat),
-                seatReserved: this.state.seatReserved.filter(res => res != seat)
-            })
-        } else {
-            this.setState({
-                seatReserved: this.state.seatReserved.concat(seat),
-                seatAvailable: this.state.seatAvailable.filter(res => res != seat)
-            })
+        if ((seat.length < 3 && seat.length > 0)) {
+            if(this.state.seatReserved.indexOf(seat) > -1 ) {
+                this.setState({
+                    seatAvailable: this.state.seatAvailable.concat(seat),
+                    seatReserved: this.state.seatReserved.filter(res => res != seat)
+                })
+            } else {
+                this.setState({
+                    seatReserved: this.state.seatReserved.concat(seat),
+                    seatAvailable: this.state.seatAvailable.filter(res => res != seat)
+                })
+            }
         }
     }
 
@@ -71,3 +60,4 @@ class bookPlaceAndLuggage extends React.Component {
 }
 
 export default bookPlaceAndLuggage
+

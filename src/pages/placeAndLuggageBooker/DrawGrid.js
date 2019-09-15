@@ -4,19 +4,15 @@ import ReservedList from './ReservedList'
 class DrawGrid extends React.Component {
     render() {
         return (
-            <div>
+            <div className='main-container'>
+
                 <div className="userProfile-form">
+                    <div className="header"></div>
                     <p className='userSpace'>Traveler : <span className='travelerDiv'>Mr. Typical Placeholder</span></p>
-                    <p className=''>Plane: <span className='travelerDiv'>Id of the best plane out there</span></p>
+                    <p className='planeId'>Plane: <span className='travelerDiv'>LO 6724</span></p>
                     <ReservedList reserved = { this.props.reserved } />
                 </div>
 
-                <div className='bookLuggage-form'>
-                    Choose extra luggage services:
-                    <div>Luggage choice 1</div>
-                    <div>Luggage choice 2</div>
-                    <div>Luggage choice 3</div>
-                </div>
 
             <div className="container">
                 <table className="grid">

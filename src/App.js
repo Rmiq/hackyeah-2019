@@ -23,7 +23,7 @@ const App = () => {
 					<div className="app-navigation">
 						<ul>
 							<li>
-								<NavLink exact to="/forms">
+								<NavLink exact to="/book-a-flight">
 									Book a flight
 								</NavLink>
 							</li>
@@ -56,8 +56,8 @@ const App = () => {
 				<img className="background-image" src="./clouds.png" />
 				<section className="app-content">
 					<Route path="/" exact component={Home} />
-					<Route path="/forms" exact component={FormCreator} />
-                    <Route path="/transfer" exact component={bookPlaceAndLuggage} />
+					<Route path="/book-a-flight" exact component={FormCreator} />
+					<Route path="/transfer" exact component={bookPlaceAndLuggage} />
 					<Route path="/history" exact component={History} />
 				</section>
 			</Router>

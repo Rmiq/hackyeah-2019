@@ -84,8 +84,8 @@ const Home = () => {
 						<h2>{quizQuestions[quizCounter].question}</h2>
 					</div>
 				) : (
-					<h3>Destinations that match your preferences the best:</h3>
-				)}
+						<h3>Destinations that match your preferences the best:</h3>
+					)}
 
 				{quizShow && (
 					<div className="answers">
@@ -113,7 +113,7 @@ const Home = () => {
 				<div
 					className={`results ${
 						quizCounter % 2 == 0 ? "even" : "odd"
-					}`}
+						}`}
 				>
 					<h3>Top results:</h3>
 					<div className="results-list">
@@ -124,7 +124,7 @@ const Home = () => {
 									<span>Miami</span>
 								</div>
 
-								<NavLink to="/forms?city=Miami" data="Miami">
+								<NavLink to="/book-a-flight?city=Miami" data="Miami">
 									Check prices
 								</NavLink>
 							</li>
@@ -135,7 +135,7 @@ const Home = () => {
 								</div>
 
 								<NavLink
-									to="/forms?city=Los%20Angeles"
+									to="/book-a-flight?city=Los%20Angeles"
 									data="Los Angeles"
 								>
 									Check prices
@@ -148,7 +148,7 @@ const Home = () => {
 								</div>
 
 								<NavLink
-									to="/forms?city=New%20York"
+									to="/book-a-flight?city=New%20York"
 									data="New York"
 								>
 									Check prices
@@ -163,7 +163,7 @@ const Home = () => {
 										</div>
 
 										<NavLink
-											to="/forms?city=New%20Delhi"
+											to="/book-a-flight?city=New%20Delhi"
 											data="New Delhi"
 										>
 											Check prices
@@ -176,7 +176,7 @@ const Home = () => {
 										</div>
 
 										<NavLink
-											to="/forms?city=Tokyo"
+											to="/book-a-flight?city=Tokyo"
 											data="Tokyo"
 										>
 											Check prices
@@ -188,8 +188,8 @@ const Home = () => {
 					</div>
 				</div>
 			) : (
-				""
-			)}
+					""
+				)}
 
 			<div className="standard-search">
 				<span>or use a </span>
